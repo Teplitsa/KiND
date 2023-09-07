@@ -1,0 +1,57 @@
+/**
+ * Buttons
+ */
+
+.kind-button {
+	font-family: var(--kind-font-family-base);
+	display: inline-block;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 17px;
+	padding: 12px 20px;
+	color: #fff;
+	background: var(--kind-color-main);
+	border: 2px solid var(--kind-color-main);
+	border-radius: var(--kind-button-border-radius);
+	text-transform: uppercase;
+	line-height: 1;
+	text-decoration: none;
+	transition: color 0.3s, background 0.3s, border-color 0.3s, opacity 0.3s;
+	white-space: nowrap;
+
+	&:hover {
+		background: var(--kind-color-main-active);
+		border-color: var(--kind-color-main-active);
+	}
+
+	&-outline {
+		background-color: #fff;
+		color: var(--kind-color-main);
+
+		&:hover {
+			background-color: #fff;
+			color: var(--kind-color-main-active);
+			border-color: 2px solid var(--kind-color-main-active);
+		}
+	}
+
+	&-xs {
+		padding: 8px 10px;
+		font-size: 12px;
+	}
+
+	&-sm {
+		padding: 12px 16px;
+		font-size: 14px;
+	}
+
+	&-lg {
+		font-size: 18px;
+		padding: 12px 20px;
+	}
+
+	&-xl {
+		font-size: 31px;
+		padding: 16px 30px;
+	}
+}

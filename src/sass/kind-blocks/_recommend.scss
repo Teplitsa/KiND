@@ -1,0 +1,20 @@
+/**
+ * Recommend Block
+ */
+:root {
+	--kind-block-recommend-color: #000;
+	--kind-block-recommend-background: #f7f7af;
+}
+
+.kind-block-recommend {
+	font-style: italic;
+	letter-spacing: normal;
+	font-size: 16px;
+	line-height: 1.5;
+	color: var(--kind-block-recommend-color);
+	padding: 15px 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: var(--kind-block-recommend-background);
+	text-align: left;
+}

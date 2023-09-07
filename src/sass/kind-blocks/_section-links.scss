@@ -1,0 +1,44 @@
+/**
+ * Section Links
+ */
+
+.kind-block {
+	.section-links {
+		font-weight: bold;
+		font-size: 18px;
+		font-family: var(--kind-font-family-base);
+		display: flex;
+
+		a {
+			color: var(--kind-block-link-color);
+			border-bottom: none;
+			text-decoration: none;
+			line-height: 1.33;
+			display: flex;
+			align-items: center;
+
+			svg {
+				margin-left: 5px;
+				position: relative;
+				right: 0;
+				transition: right .1s;
+			}
+
+			&:hover {
+				border-bottom: transparent;
+				text-decoration: none;
+				color: var(--kind-block-link-color);
+				opacity: .7;
+
+				svg {
+					right: -2px;
+				}
+			}
+
+			&:not(:last-child) {
+				margin-right: 30px;
+			}
+
+		}
+	}
+}

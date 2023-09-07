@@ -1,0 +1,91 @@
+/**
+ * Customizer
+ */
+
+/* Custom */
+#customize-control-font_logo_header {
+	margin-bottom: 0;
+}
+
+/* Header Select */
+#customize-control-header_type label {
+	display: block;
+	width: 100%;
+}
+#customize-control-header_type label > img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+#customize-control-header_type label:not(:last-child) {
+	margin-bottom: 10px;
+}
+.customize-control-kirki-radio-image input:checked + label {
+	box-shadow: 0 0 0 2px #00a0d2;
+}
+.customize-control-kirki-radio-image input:checked + label img {
+	border: 0;
+	box-shadow: none;
+}
+
+/* Divider */
+.kind-customizer-divider {
+	border-bottom: 1px dashed #838e97;
+	margin: 8px -12px 0;
+}
+.kind-customizer-heading {
+	display: block;
+	color: #555d66;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	font-size: 14px;
+	padding: 10px 10px 11px 14px;
+	margin: 8px -12px 0;
+	line-height: 1.55;
+	font-weight: 600;
+}
+.kind-customizer-heading + .kind-customizer-heading {
+	margin-top: 0;
+	border-top: 0;
+}
+.kind-customizer-link {
+	display: block;
+	margin: -10px -10px -11px -14px;
+	padding: 10px 10px 11px 14px;
+	color: #2271b1;
+	background-color: #fff;
+	border-left: 4px solid #fff;
+	text-decoration: none;
+	position: relative;
+	transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
+}
+.kind-customizer-link:hover {
+	color: #2271b1;
+	background: #f6f7f7;
+	border-left-color: #2271b1;
+}
+.kind-customizer-link:after {
+	content: "\f504";
+	color: #a7aaad;
+	top: calc(50% - 10px);
+	position: absolute;
+	top: 12px;
+	right: 10px;
+	z-index: 1;
+	float:  right;
+	font: normal 20px/1 dashicons;
+	display: block;
+	-webkit-font-smoothing: antialiased;
+}
+.kind-customizer-link:hover:after {
+	color: #2271b1;
+}
+
+.customize-control-title {
+	line-height: 1.3;
+}
+
+.customize-control-repeater .upload-button {
+	width: initial;
+}

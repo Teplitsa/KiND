@@ -1,0 +1,35 @@
+// Events Booking
+// & = .kind-event
+
+.em-booking {
+	> p {
+		text-align: center;
+
+		a {
+			color: var(--kind-color-main);
+		}
+	}
+	&-form {
+		&:before,
+		&:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	}
+
+	.kind-event__booking &-login {
+		border-left: 0;
+		margin: 50px auto 0;
+		padding: 0;
+		max-width: 400px;
+	}
+}
+
+.kind-event__booking {
+	margin-bottom: 60px;
+
+	.em-login-trigger {
+		display: none;
+	}
+}

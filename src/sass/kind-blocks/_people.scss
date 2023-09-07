@@ -1,0 +1,211 @@
+/**
+ * People Block
+ */
+
+ :root {
+	--kind-block-people-background: transparent;
+	--kind-block-people-heading-color: var(--kind-color-headings);
+	--kind-block-people-name-color: var(--kind-color-headings);
+	--kind-block-people-meta-color: var(--kind-color-main);
+}
+
+.wp-block-kind-people {
+	padding-top: 30px;
+	padding-bottom: 0;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	background-color: var(--kind-block-people-background);
+
+	&.has-background {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	&.has-background.alignfull {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	&.has-background:not(.alignfull):not(.alignwide) {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
+	&.has-background:not(.alignfull) {
+		border-radius: var(--kind-image-border-radius);
+	}
+
+	.section-title {
+		font-size: 24px;
+		font-family: var(--kind-font-family-headings);
+		color: var(--kind-block-people-heading-color);
+		margin-top: 0;
+		margin-bottom: 30px;
+		padding: 0;
+	}
+
+	.section-heading {
+		margin-bottom: 30px;
+	}
+
+	.kind-block-items {
+
+		margin-left: -20px;
+		margin-right: -20px;
+
+		&:not(.kind-block-carousel) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	.kind-block-item {
+		flex: 0 0 50%;
+		max-width: 50%;
+		width: 50%;
+		padding: 0 20px 40px;
+		transition: opacity 0.3s;
+		box-sizing: border-box;
+
+		@media (max-width: 480px) {
+			flex: 0 0 calc( 100% / 1 );
+			max-width: calc( 100% / 1 );
+			width: calc( 100% / 1 );
+		}
+
+		&.is-active-link:hover {
+			opacity: .8;
+		}
+
+		&__inner {
+			position: relative;
+		}
+
+		&-link {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			border: 0;
+			text-decoration: none;
+		}
+	}
+
+	@media (min-width: 768px) {
+		&.kind-block-col {
+			&-3 .kind-block-item {
+				flex: 0 0 calc( 100% / 3 );
+				max-width: calc( 100% / 3 );
+				width: calc( 100% / 3 );
+			}
+			&-4 .kind-block-item {
+				flex: 0 0 calc( 100% / 4 );
+				max-width: calc( 100% / 4 );
+				width: calc( 100% / 4 );
+			}
+			&-5 .kind-block-item {
+				flex: 0 0 calc( 100% / 5 );
+				max-width: calc( 100% / 5 );
+				width: calc( 100% / 5 );
+			}
+			&-6 .kind-block-item {
+				flex: 0 0 calc( 100% / 6 );
+				max-width: calc( 100% / 6 );
+				width: calc( 100% / 6 );
+			}
+			&-7 .kind-block-item {
+				flex: 0 0 calc( 100% / 7 );
+				max-width: calc( 100% / 7 );
+				width: calc( 100% / 7 );
+			}
+			&-8 .kind-block-item {
+				flex: 0 0 calc( 100% / 8 );
+				max-width: calc( 100% / 8 );
+				width: calc( 100% / 8 );
+			}
+		}
+	}
+
+	.entry-preview {
+		position: relative;
+		overflow: hidden;
+		border-radius: var(--kind-image-border-radius);
+
+		&:after {
+			content: '';
+			display: block;
+			padding-top: 100%;
+		}
+		img {
+			display: block;
+			position: absolute;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&.is-style-rounded .entry-preview {
+		--kind-image-border-radius: 50%;
+	}
+
+	.entry-data {
+		text-align: left;
+		padding-top: 24px;
+	}
+
+	&.is-style-rounded .entry-data {
+		text-align: center;
+	}
+
+	.entry-title {
+		font-size: 16px;
+		font-family: var(--kind-font-family-headings);
+		margin: 0;
+		padding: 0 0 12px;
+		letter-spacing: .01em;
+		font-weight: 600;
+		line-height: 1.2;
+		color: var(--kind-block-people-name-color);
+
+		@media (min-width: 992px) {
+			font-size: 18px;
+		}
+	}
+
+	.entry-meta {
+		font-size: 14px;
+		font-family: var(--kind-font-family-base);
+		line-height: 1.5;
+		line-height: 1.4;
+		text-transform: none;
+		color: var(--kind-block-people-meta-color);
+	}
+
+	.the-content & {
+		&.alignwide {
+			@media (min-width: 1200px){
+				margin-left: calc( ( ( var(--kind-medium-content-width) - var(--kind-content-width) ) / 2 ) * -1 );
+				margin-right: calc( ( ( var(--kind-medium-content-width) - var(--kind-content-width) ) / 2 ) * -1 );
+			}
+		}
+
+		&.alignfull {
+			margin-left: calc( ( ( 100vw - var(--kind-content-width) ) / 2 ) * -1 );
+			margin-right: calc( ( ( 100vw - var(--kind-content-width) ) / 2 ) * -1 );
+		}
+	}
+
+	&.alignnone {
+		> .kind-container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+}

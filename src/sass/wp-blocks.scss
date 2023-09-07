@@ -1,0 +1,113 @@
+/**
+ * Blocks
+ */
+
+@import 'variables';
+
+$fonts_path: '../fonts/';
+@import 'utility/fonts';
+
+// kind blocks
+@import 'kind-blocks/common';
+
+// wp blocks
+@import 'wp-blocks/common';
+@import 'wp-blocks/columns';
+@import 'wp-blocks/embed';
+@import 'wp-blocks/cover';
+@import 'wp-blocks/media-text';
+@import 'wp-blocks/table';
+@import 'wp-blocks/image';
+@import 'wp-blocks/gallery';
+@import 'wp-blocks/separator';
+
+// kind blocks
+@import 'kind-blocks/buttons';
+@import 'kind-blocks/carousel';
+@import 'kind-blocks/section-links';
+
+@import 'kind-blocks/hero';
+@import 'kind-blocks/news';
+@import 'kind-blocks/projects';
+@import 'kind-blocks/partners';
+@import 'kind-blocks/people';
+@import 'kind-blocks/cta';
+@import 'kind-blocks/info';
+@import 'kind-blocks/cover';
+@import 'kind-blocks/recommend';
+@import 'kind-blocks/hint';
+@import 'kind-blocks/events';
+
+@import 'kind-blocks/color-palette';
+@import 'kind-blocks/aligments';
+
+//events
+@import 'events/events';
+
+.kind-page-title-disabled .page-content.container {
+	padding-bottom: 0;
+}
+
+@media (min-width: 400px) {
+	.page-content.container {
+		width: initial;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+/* Block Align */
+@media (min-width: 768px){
+	.the-content .kind-block.alignfull,
+	.kind-block-image.alignfull {
+		margin-left: calc( ( ( 100vw - ( var(--kind-content-width) + var(--scroll-bar-width) ) ) / 2 ) * -1 );
+		margin-right: calc( ( ( 100vw - ( var(--kind-content-width) + var(--scroll-bar-width) ) ) / 2 ) * -1 );
+	}
+}
+@media (min-width: 1200px){
+	.the-content .kind-block.alignwide,
+	.wp-block-image.alignwide {
+		margin-left: calc( ( ( var(--kind-medium-content-width) - var(--kind-content-width) ) / 2 ) * -1 );
+		margin-right: calc( ( ( var(--kind-medium-content-width) - var(--kind-content-width) ) / 2 ) * -1 );
+	}
+}
+@media (max-width: 767px){
+	.the-content .kind-block.alignfull {
+		margin-left: -30px;
+		margin-right: -30px;
+	}
+}
+
+/* Main column width */
+.wp-block {
+	max-width: var(--kind-content-width);
+	box-sizing: border-box;
+}
+ 
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+	max-width: var(--kind-medium-content-width);
+}
+ 
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+	max-width: none;
+}
+
+/* Content */
+.the-content p strong a + a {
+	margin-left: 1em;
+}
+
+.d-none {
+	display: none !important;
+}
+
+
+
+/* BlockQuote */
+.wp-block-quote {
+	border-left: 0;
+}
+
+

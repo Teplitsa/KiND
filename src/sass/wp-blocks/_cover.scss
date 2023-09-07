@@ -1,0 +1,29 @@
+/* Cover */
+.wp-block-cover {
+
+	&:not(.alignfull) {
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+
+	.the-content &.alignwide {
+		@media (min-width: 1200px){
+			width: auto;
+			margin-left: calc( ( ( var(--kind-medium-content-width) - var(--kind-content-width) ) / 2 ) * -1 );
+			margin-right: calc( ( ( var(--kind-medium-content-width) - var(--kind-content-width) ) / 2 ) * -1 );
+		}
+
+	}
+
+	.the-content &.alignfull {
+		margin-left: -30px;
+		margin-right: -30px;
+
+		@media (min-width: 768px){
+			width: auto;
+			margin-left: calc( ( ( 100vw - var(--kind-content-width) ) / 2 ) * -1 );
+			margin-right: calc( ( ( 100vw - var(--kind-content-width) ) / 2 ) * -1 );
+		}
+	}
+
+}

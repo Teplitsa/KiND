@@ -1,0 +1,308 @@
+/** == Footers (_footer.scss) == */
+// Global footer styling
+
+/** Bottom branding pannel with social links **/
+.bottom-bar {
+
+	padding: 0 0 $base;
+
+	.kind-social-links li {
+		a {
+			color: var(--kind-footersocial-color,#000);
+
+			.image-icon-mask .image-icon {
+				background-color: var(--kind-footersocial-color,#000);
+			}
+
+			&:hover {
+				color: var(--kind-footersocial-color-hover,#000);
+
+				.image-icon-mask .image-icon {
+					background-color: var(--kind-footersocial-color-hover,#000);
+				}
+			}
+
+			.svg-icon {
+				fill: currentColor;
+			}
+		}
+	}
+
+	.logo-name {
+		font-size: var(--kind-font-size-logo,22px);
+	}
+
+	.flex-cell {
+		margin-bottom: $gut/2;
+	}
+
+}
+
+// @media (max-width: 575px) {
+// 	.bottom-bar {
+// 		.kind-footer-logo {
+// 			&__inner {
+// 				flex-wrap: wrap;
+// 			}
+// 			&__image {
+// 				width: 100%;
+// 				&:not(:last-child) {
+// 					margin-bottom: 10px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+
+/** Footer **/
+.kind-footer {
+
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.55;
+
+	padding: $base*2 0px 30px 0px;
+	background: var(--kind-footer-background, #f7f8f8);
+	color: var(--kind-footer-color, #4d606a);
+
+	a {
+		color: var(--kind-footer-link-color, #f43724);
+		text-decoration: none;
+
+		&:hover, &:focus, &:active {
+			color: var(--kind-footer-link-color-hover, #db3120);
+		}
+
+	}
+
+	.widget-area a {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	p {
+		hyphens: none;
+		margin-bottom: $base/2;
+		&:last-child { margin-bottom: 0; }
+	}
+
+	&-logo {
+		text-decoration: none;
+		display: inline-block;
+
+		&:hover {
+			text-decoration: none;
+		}
+
+		&__image {
+			max-height: 66px;
+			flex: 0 1 auto;
+			display: flex;
+			align-items: center;
+
+			img {
+				max-height: 66px;
+				width: auto;
+				display: block;
+				align-self: center;
+			}
+		}
+
+		&__inner {
+			display: flex;
+			justify-content: flex-start;
+
+			@media (max-width: 575px) {
+				flex-direction: column;
+			}
+
+			@media (min-width: 576px) {
+				align-items: center;
+			}
+
+		}
+
+		&__text {
+			flex: 1 1 auto;
+
+			@media (max-width: 575px) {
+				&:not(:first-child) {
+					margin-top: 15px;
+				}
+			}
+
+			@media (min-width: 576px) {
+				&:not(:first-child) {
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+
+	.copy {
+		a {
+			white-space: nowrap;
+			color: var(--kind-footer-color, #4d606a);
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		@media (max-width: 480px){
+			text-align: center;
+			max-width: initial;
+		}
+	}
+
+	//layout
+	.widget-area {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
+	.widget-bottom {
+		flex: 1;
+		padding-bottom: $gut;
+		padding-left: 20px;
+		padding-right: 20px;
+		max-width: 60%;
+
+		@media (max-width: 1199px ) {
+			max-width: 100%;
+		}
+
+		&-about {
+			order: 1;
+
+			@media (max-width: 767px ) {
+				max-width: 100%;
+				flex: 0 0 auto;
+				width: 100%;
+			}
+		}
+
+		&-policy {
+			order: 4;
+
+			@media (max-width: 1199px ) {
+				max-width: 100%;
+				flex: 0 0 auto;
+				width: 100%;
+			}
+
+			@media (max-width: 767px ) {
+				order: 2;
+			}
+		}
+
+		&-menu {
+			max-width: 190px;
+			order: 3;
+
+			@media (max-width: 767px ) {
+				max-width: 50%;
+			}
+
+			@media (max-width: 575px ) {
+				max-width: 100%;
+				flex: 0 0 auto;
+				width: 100%;
+			}
+
+			.menu {
+				li {
+					font-size: 11px;
+					line-height: 1.2;
+					margin-bottom: 1.1em;
+					font-weight: bold;
+					letter-spacing: 0.05em;
+				}
+
+				a {
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+
+	.hr {
+		margin: 0;
+		display: block;
+		border-bottom: 1px solid currentColor;
+		opacity: .2;
+
+		@include for(xxlarge-screens) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
+
+/** Footer credits block */
+.footer-credits {
+	padding-top: 26px;
+	justify-content: center;
+
+	&.flex-row {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+
+	> .flex-cell:first-child:last-child {
+		> .copy {
+			text-align: center;
+			max-width: initial;
+		}
+	}
+}
+
+.kind-brand {
+	position: relative;
+	display: flex;
+	justify-content: center;
+
+	@media (min-width: 480px) {
+		justify-content: flex-end;
+	}
+
+	@include cf;
+
+	.kind-icon {
+		display: inline-block;
+		width: 100%; 
+		height: 100%;
+	}
+
+	a {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: center;
+		align-items: center;
+		text-align: right;
+		text-decoration: none;
+		color: var(--kind-footer-color,#4d606a);
+
+		&:hover {
+			text-decoration: none;
+			color: var(--kind-footer-color,#4d606a);
+		}
+	}
+
+	.kind-banner {
+		display: block;
+		flex: 0 0 auto;
+		width: 48px;
+		height: 48px; 
+	}
+
+	.support {
+		line-height: 1.2;
+		padding-right: 20px;
+		text-align: right;
+	}
+}

@@ -1,0 +1,155 @@
+/** == Built-in WordPress widgets (_builin.scss) == */
+// Support for some core widgets in general widget area and in footer 
+
+/* General large styles */
+.widget-full {
+	
+	.widget-full-title  {
+		@include kind-head-exlarge-text();
+		padding-bottom: $gut*.7;
+	}
+
+	&.widget_nav_menu,
+	&.widget_search,
+	&.widget_media_image,
+	&.widget_media_audio,
+	&.widget_media_video,
+	&.widget_text {
+		text-align: center; 
+		padding: $gut/2 0 $gut;
+		@include container-base();
+	}
+}
+
+.widget-bottom {
+	.widget-title {
+		font-size: 11px;
+		margin-bottom: 2em;
+		text-transform: uppercase;
+		color: var(--kind-footer-heading-color);
+		font-family: var(--kind-font-family-headings);
+		font-weight: var(--kind-font-weight-headings);
+		font-style: var(--kind-font-style-headings);
+		line-height: 1.2;
+	}
+}
+
+// Text
+.widget-full.widget_text {
+	max-width: $full_cont;
+
+	.textwidget {
+		max-width: $page_cont;
+		text-align: left;
+		@include the-content();
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&.widget_custom_html {
+		.textwidget { max-width: none; }
+	}
+}
+
+
+// Image
+.widget-full.widget_media_image {
+	text-align: center;
+	
+	.heading + img {
+		max-width: $full_cont;
+		height: auto;
+	}
+}
+
+
+// Video and audio
+.widget-full.widget_media_video,
+.widget-full.widget_media_audio {
+	max-width: $page_cont;
+}
+
+// Search
+.widget-full.widget_search {
+	max-width: $page_cont;
+	position: relative;
+	z-index: 1;
+
+	.searchform {
+		position: relative;
+	}
+
+	.icon-search {
+		width: 26px;
+		height: 26px;
+		position: absolute;
+		top: 17px;
+		left: 17px;
+		fill: $color-main;
+		z-index: 5;
+	}
+
+	.search-field {
+		position: relative;
+		z-index: 10;
+		background: transparent;
+		border: 2px solid $color-main;
+		padding-left: 54px;
+		
+		&::placeholder {
+			color: transparent;
+		}
+
+		&:focus, &:active {
+			border-color: $color-main-dark;
+			background: var(--kind-color-white);
+			padding-left: 24px;
+
+			&::placeholder {
+				color: $color-text;
+			}
+		}
+
+		@include for(medium-screens) {
+			padding-right: 90px;
+		}
+	}
+
+	.action {
+		@include for(medium-screens) {
+			display: inline-block;
+			position: absolute;
+			right: 15px;
+			@include kind-link-terms-text();
+			font-weight: 400;
+			text-transform: uppercase;
+			letter-spacing: normal;
+			top: 20px;
+		}
+	}
+
+	.sr-num {
+		font-size: .85em;
+		text-align: left;
+		margin-top: 8px;
+	}
+
+	&.search-holder {
+		padding-bottom: 0;
+	}
+}
+
+// Leyka defaut donations list
+.leyka_donations_list {
+	.widget-full-title {
+		text-align: center;
+	}
+
+	&.widget-full {
+		padding-top: $gut/2;
+		padding-bottom: $gut;
+		max-width: $page_cont;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}

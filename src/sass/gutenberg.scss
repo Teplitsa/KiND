@@ -1,0 +1,155 @@
+/**
+ * Gutenberg
+ */
+
+@import 'variables';
+@import 'mixins';
+
+.editor-styles-wrapper {
+	font-family: var(--kind-font-family-base) !important;
+	line-height: 1.55;
+	font-weight: var(--kind-font-weight-base, 500);
+	font-size: var(--kind-font-size-base);
+
+	background-color: var(--kind-page-bg-color);
+
+	&.block-editor-writing-flow {
+		color: var(--kind-color-base);
+	}
+
+	.editor-post-title {
+		&__input {
+			font-weight: inherit;
+		}
+	}
+
+	.editor-post-title,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--kind-color-headings);
+		font-family: var(--kind-font-family-headings), 'Arial';
+		font-weight: var(--kind-font-weight-headings);
+	}
+
+	.wp-block[data-align=full] {
+		margin-left: -8px;
+		margin-right: -8px;
+	}
+
+	p,
+	ol li,
+	ul li,
+	td {
+		a {
+			outline: none;
+			color: var(--kind-color-main);
+
+			:hover {
+				color: var(--kind-color-main-active);
+				text-decoration: none;
+				border-bottom-color: transparent;
+			}
+		}
+	}
+
+	@include list();
+}
+
+.kind-components {
+	&-heading {
+
+		$el: &;
+
+		&__help {
+			margin-bottom: 8px;
+		}
+
+		&__label {
+			font-size: 12px;
+			color: #757575;
+			margin-bottom: 8px;
+
+			& + #{$el}__help {
+				margin-top: -5px;
+			}
+		}
+	}
+
+	.components-color-picker__inputs-toggle-wrapper {
+		align-self: center;
+	}
+
+	&-base-control {
+		.components-base-control__label {
+			margin-bottom: 8px;
+			display: block;
+		}
+	}
+}
+
+.kind-editor-block-card__description {
+	padding: 0 16px 16px 52px;
+	margin-top: -12px;
+
+	&-alt {
+		padding-left: 16px;
+	}
+
+	.dashicons {
+		font-size: inherit;
+		width: auto;
+		height: auto;
+		line-height: inherit;
+		vertical-align: baseline;
+	}
+}
+
+.kind-editor-block-panel__description {
+	padding-bottom: 16px;
+
+	.dashicons {
+		font-size: inherit;
+		width: auto;
+		height: auto;
+		line-height: inherit;
+		vertical-align: baseline;
+	}
+}
+
+.kind-components-panel__body:not(.is-opened) {
+	.components-base-control {
+		display: none;
+	}
+}
+
+.component-heading-links {
+	border-bottom: 1px solid #e0e0e0;
+	display: flex;
+	flex-direction: column;
+
+	&:last-of-type {
+		margin-bottom: 15px;
+	}
+
+	& + .component-heading-links {
+		padding-top: 15px;
+	}
+
+	.block-editor-block-inspector & .components-base-control {
+		margin-bottom: 0;
+	}
+
+	.components-button {
+		margin-left: auto;
+		margin-bottom: 10px;
+		padding: 0
+	}
+}
+
+.editor-post-featured-image .components-responsive-wrapper__content[src$=".svg"] {
+	position: relative;
+}

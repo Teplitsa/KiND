@@ -1,0 +1,122 @@
+// Common styles
+.button {
+	@include button();
+}	
+
+.tpl-pictured-bg {
+	width: 100%;
+	height: 100%;
+	background-color: $color-page-bg-dark;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center top;
+}
+
+.kind-homepage-sidebar {
+	position: relative;
+}
+
+// Donations
+.kind-donations-widget {
+
+	background: $color-page-bg; 
+	
+	.widget-full-title {
+		text-align:center;
+	}
+	 
+	padding-top: $gut*.7;
+	padding-bottom: $gut*.3;
+}
+
+/** Deprecated, remove in version 3.0 */
+.leyka-loop {
+	.tpl-post {
+		border: 1px solid $color-page-bg-dark;
+		padding: $gut*.5 $gut*.54 $gut/2;
+		
+		@include for(small-screens) {
+			padding: $gut * 1.08 $gut $gut/2;
+		}
+
+		@include for(medium-screens) {
+			padding: $gut*.5 $gut*.54 $gut/2;
+		}
+
+		@include for(large-screens) {
+			padding: $gut * 1.08 $gut $gut/2;
+		}
+		
+		.help-purpose {
+			@include kind-link-donation-purpose();
+			color: $color-main-dark;
+			padding-top: $gut / 2;
+		}
+		
+		.lk-title {
+			@include kind-head-main-text();
+			padding-top: $gut / 2.1;
+			padding-bottom: 7px;
+		}
+		
+		p {
+			@include kind-card-text();
+			padding-bottom: $gut;
+		}
+		
+		.leyka-scale-scale {
+			width: 100%;
+			height: 7px;
+			
+			.target {
+				height: inherit;
+				background: var(--kind-color-light-grey);
+				
+				.collected {
+					height: inherit;
+					background: $color-main;
+				}
+			}
+		}
+		
+		.leyka-scale-label {
+			@include kind-link-related-text();
+			color: $color-text-light;
+			
+			.caption {
+				@include kind-link-donation-purpose();
+				padding-top: $gut / 3.8;
+			}
+			
+			.sum {
+				color: $color-main;
+			}
+			
+			.kind-campaign-needed .sum {
+				color: $color-text;
+			}
+			
+		}
+		
+		.leyka-scale-button-alone {
+			text-align:right;
+		}
+		
+		.leyka-scale-button-alone {
+			a {
+				@include button();
+				@include kind-leyka-button-caption-text();
+				margin-top:$gut / 1.4;
+				padding: 10px 30px;
+
+				@include for(small-screens) {
+					padding: 12px 33px;
+				}
+			}
+		}
+		
+	}
+	
+}
+
+

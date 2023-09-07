@@ -1,0 +1,33 @@
+/* Embeds */
+.wp-block-embed {
+	figcaption {
+		color: var(--kind-page-text-color-light);
+		font-size: 14px;
+		font-family: var(--kind-font-family-base);
+		font-weight: 400;
+		line-height: 1.55;
+	}
+
+	&-responsive {
+		position: relative;
+		margin: 26px auto;
+
+		&:before {
+			content: '';
+			display: block;
+			padding-top: 56.25%;
+		}
+
+		iframe {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	
+}

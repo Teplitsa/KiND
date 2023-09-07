@@ -1,0 +1,276 @@
+@charset "UTF-8";
+/**
+ * Gutenberg
+ */
+:root {
+	--kind-color-white: #ffffff;
+	--kind-color-black: #000000;
+	--kind-color-light-grey: #f7f8f8;
+	--kind-color-light-blue: #f5fafe;
+	--kind-color-main: #d30a6a;
+	--kind-color-main-active: #ab0957;
+	--kind-page-bg-color: #ffffff;
+	--kind-page-bg-color-dark: #cccccc;
+	--kind-page-text-color-light: #e7ffff;
+	--kind-header-background: #ffffff;
+	--kind-color-base: #4d606a;
+	--kind-font-family-base: "Raleway", Arial, sans-serif;
+	--kind-font-weight-base: 500;
+	--kind-font-size-base: 18px;
+	--kind-font-style-base: normal;
+	--kind-color-headings: #183343;
+	--kind-font-family-headings: "Raleway", Arial, sans-serif;
+	--kind-font-weight-headings: 700;
+	--kind-font-style-headings: normal;
+	--kind-font-size-menu: 18px;
+	--kind-completed-project-color: #4d606a;
+	--kind-completed-project-opacity: 0.8;
+	--kind-header-height: 124px;
+	--kind-font-family-button: var(--kind-font-family-base);
+	--kind-button-border-radius: .5em;
+	--kind-image-border-radius: 8px;
+	--kind-content-width: 720px;
+	--kind-medium-content-width: 1200px;
+	--kind-block-link-color: var(--kind-color-main);
+	--kind-color-logo: #183343;
+	--kind-color-logo-desc: #4d606a;
+	--kind-font-family-logo: var(--kind-font-family-headings);
+	--kind-color-menu: #4d606a;
+	--kind-color-menu-hover: #dd1400;
+	--kind-footer-background: #f7f8f8;
+	--kind-footer-heading-color: #183343;
+	--kind-footer-color: #4d606a;
+	--kind-footer-link-color: #dd1400;
+	--kind-footer-link-color-hover: #c81303;
+	--kind-adminbar-height: 32px;
+	--scroll-bar-width: 15px;
+}
+
+@media (max-width: 782px) {
+	body {
+		--kind-adminbar-height: 46px;
+	}
+}
+
+.kind-footer {
+	--kind-color-logo: #183343;
+	--kind-color-logo-desc: #4d606a;
+	--kind-footersocial-color: #183343;
+	--kind-footersocial-color-hover: #4d606a;
+}
+
+/** Utilities **/
+/* Media queries */
+/** Global layout presets **/
+/** Post content elements **/
+/* Elements */
+.editor-styles-wrapper {
+	font-family: var(--kind-font-family-base) !important;
+	line-height: 1.55;
+	font-weight: var(--kind-font-weight-base, 500);
+	font-size: var(--kind-font-size-base);
+	background-color: var(--kind-page-bg-color);
+}
+
+.editor-styles-wrapper.block-editor-writing-flow {
+	color: var(--kind-color-base);
+}
+
+.editor-styles-wrapper .editor-post-title__input {
+	font-weight: inherit;
+}
+
+.editor-styles-wrapper .editor-post-title,
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+	color: var(--kind-color-headings);
+	font-family: var(--kind-font-family-headings), "Arial";
+	font-weight: var(--kind-font-weight-headings);
+}
+
+.editor-styles-wrapper .wp-block[data-align=full] {
+	margin-left: -8px;
+	margin-right: -8px;
+}
+
+.editor-styles-wrapper p a,
+.editor-styles-wrapper ol li a,
+.editor-styles-wrapper ul li a,
+.editor-styles-wrapper td a {
+	outline: none;
+	color: var(--kind-color-main);
+}
+
+.editor-styles-wrapper p a :hover,
+.editor-styles-wrapper ol li a :hover,
+.editor-styles-wrapper ul li a :hover,
+.editor-styles-wrapper td a :hover {
+	color: var(--kind-color-main-active);
+	text-decoration: none;
+	border-bottom-color: transparent;
+}
+
+.editor-styles-wrapper ul {
+	margin-top: 26px;
+	margin-bottom: 26px;
+	list-style-type: '– ';
+	padding-left: 1.5em;
+}
+
+.editor-styles-wrapper ul:first-child {
+	margin-top: 0;
+}
+
+.editor-styles-wrapper ul li li {
+	padding-left: 0;
+	break-inside: avoid;
+}
+
+.editor-styles-wrapper ul li li:before {
+	display: none;
+}
+
+.editor-styles-wrapper ul ul {
+	list-style: circle;
+}
+
+.editor-styles-wrapper ul ul ul {
+	list-style: square;
+}
+
+.editor-styles-wrapper ol {
+	list-style: decimal;
+	margin-top: 26px;
+	margin-bottom: 26px;
+	padding-left: 1.5em;
+}
+
+.editor-styles-wrapper ol:first-child {
+	margin-top: 0;
+}
+
+.editor-styles-wrapper ol ol {
+	list-style: lower-alpha;
+}
+
+.editor-styles-wrapper ol ol ol {
+	list-style: lower-roman;
+}
+
+.editor-styles-wrapper ul ul,
+.editor-styles-wrapper ul ol,
+.editor-styles-wrapper ol ul,
+.editor-styles-wrapper ol ol {
+	margin-bottom: 0;
+}
+
+.editor-styles-wrapper ul ul:first-child,
+.editor-styles-wrapper ul ol:first-child,
+.editor-styles-wrapper ol ul:first-child,
+.editor-styles-wrapper ol ol:first-child {
+	margin-top: 13px;
+}
+
+.editor-styles-wrapper li {
+	margin-bottom: 13px;
+}
+
+.editor-styles-wrapper li:last-child {
+	margin-bottom: 0;
+}
+
+.editor-styles-wrapper ul + p,
+.editor-styles-wrapper ol + p {
+	margin-top: 26px;
+}
+
+.kind-components-heading__help {
+	margin-bottom: 8px;
+}
+
+.kind-components-heading__label {
+	font-size: 12px;
+	color: #757575;
+	margin-bottom: 8px;
+}
+
+.kind-components-heading__label + .kind-components-heading__help {
+	margin-top: -5px;
+}
+
+.kind-components .components-color-picker__inputs-toggle-wrapper {
+	-ms-flex-item-align: center;
+	align-self: center;
+}
+
+.kind-components-base-control .components-base-control__label {
+	margin-bottom: 8px;
+	display: block;
+}
+
+.kind-editor-block-card__description {
+	padding: 0 16px 16px 52px;
+	margin-top: -12px;
+}
+
+.kind-editor-block-card__description-alt {
+	padding-left: 16px;
+}
+
+.kind-editor-block-card__description .dashicons {
+	font-size: inherit;
+	width: auto;
+	height: auto;
+	line-height: inherit;
+	vertical-align: baseline;
+}
+
+.kind-editor-block-panel__description {
+	padding-bottom: 16px;
+}
+
+.kind-editor-block-panel__description .dashicons {
+	font-size: inherit;
+	width: auto;
+	height: auto;
+	line-height: inherit;
+	vertical-align: baseline;
+}
+
+.kind-components-panel__body:not(.is-opened) .components-base-control {
+	display: none;
+}
+
+.component-heading-links {
+	border-bottom: 1px solid #e0e0e0;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.component-heading-links:last-of-type {
+	margin-bottom: 15px;
+}
+
+.component-heading-links + .component-heading-links {
+	padding-top: 15px;
+}
+
+.block-editor-block-inspector .component-heading-links .components-base-control {
+	margin-bottom: 0;
+}
+
+.component-heading-links .components-button {
+	margin-left: auto;
+	margin-bottom: 10px;
+	padding: 0;
+}
+
+.editor-post-featured-image .components-responsive-wrapper__content[src$=".svg"] {
+	position: relative;
+}

@@ -1,0 +1,29 @@
+//Styles for visual editor mode
+@import 'bourbon';
+@import 'modularscale';
+
+@import 'variables';
+@import 'mixins';
+@import 'mixins-typography';
+
+//global utilities
+@import 'utility/fonts';
+@import 'utility/reset';
+@import 'utility/text';
+
+
+body {
+	background-color: transparent;
+	text-rendering: optimizeLegibility;
+	color: var(--kind-color-base);
+	@include kind-body-text();
+	display: none;
+}
+
+#tinymce {
+	margin: 10px 12px; 
+	@include the-content();
+	.gallery-caption {
+		display: none;
+	}
+}

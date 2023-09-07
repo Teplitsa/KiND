@@ -1,0 +1,335 @@
+/** == Posts listings (_builin.scss) == */
+// Styles for posts listings and cards with CPT varianst
+
+/** Commons **/
+.thumbnail-link { 
+	display: block;
+}
+
+.sep { 
+	padding: 0 4px; 
+}
+
+.fixed-top {
+	position: fixed;
+	top: 99px + 90px;
+}
+
+.fixed-bottom {
+	position: absolute;
+	bottom: 0;
+}
+
+
+/**  Cards Structure **/
+
+// Post meta elemnts - wrappen in mixin
+@mixin post-meta() {
+	font-size: 11px;
+	font-family: $body;
+	font-weight: bold;
+	line-height: 1.5;
+	text-transform: uppercase;
+	color: var(--kind-color-headings);
+
+	a {
+		color: inherit;
+		&:hover { text-decoration: underline; }
+	}
+
+	.date {
+		color: $color-text;
+	}
+	.sep {
+		padding-left: 10px;
+		padding-right: 10px;
+
+		&:before {
+			content: '•';
+		}
+	}
+
+	.category {
+		color: var(--kind-color-main);
+		letter-spacing: 0.05em;
+	}
+}
+
+
+/* Post */
+// Post card template
+.tpl-post {
+	transition: color 0.3s, background 0.3s, border 0.3s, opacity 0.3s;
+	
+	&:hover {
+		.entry-preview:after { background: rgba(0,0,0, 0.1); }
+	}
+
+	.thumbnail-link {
+		display: block;
+		//color: $color-text;
+		color: $color-text;
+		position:relative;
+		height: 100%;
+	}
+	
+	.entry-data {
+		padding-top: 20px;
+		position: relative;
+	}
+	
+	.entry-preview {
+		@include shadowed-preview();
+		
+		overflow: hidden;
+		border-radius: var(--kind-image-border-radius);
+		img {
+			margin-bottom:0px;
+		}
+	}
+
+	.entry-meta {
+		@include post-meta();
+	}
+
+	.entry-title {
+		margin-bottom: $base*0.75;
+		padding-top: 0px;
+		hyphens: auto;
+		color: var(--kind-color-headings);
+		line-height: 1.25;
+		font-size: 1rem;
+
+		@media (max-width: 991px) {
+			font-size: 0.9rem;
+		}
+
+	}
+	
+	.entry-summary {
+		@include kind-subhead-text();
+		color: $color-text;
+
+		> p {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+/** Programms **/
+.tpl-project {
+	transition: color 0.3s, background 0.3s, border 0.3s, opacity 0.3s;
+
+	&:hover {
+		.entry-preview:after { background: rgba(0,0,0, 0.1); }
+	}
+
+	a {
+		display: block;
+		position:relative;
+		height: 100%;
+	}
+
+	.entry-preview {
+		@include shadowed-preview();
+
+		overflow: hidden;
+		border-radius: var(--kind-image-border-radius);
+		img {
+			margin-bottom:0px;
+		}
+	}
+
+	.entry-title {
+		@include kind-head-card-text();
+		margin-bottom: $base*0.75;
+		padding: 24px 0px 0px 0px;
+		hyphens: auto;
+	}
+}
+
+/** People **/
+.tpl-person {
+	margin-bottom: $gut;
+	background: $color-page-bg;
+	transition: background 0.3s;
+
+	&.linked:hover {
+
+	}
+
+	.entry-title {
+		@include kind-head-card-text();
+		line-height: 1.2;
+		margin-bottom: 12px; 
+	}
+
+	.entry-preview {
+		@include shadowed-preview();
+	}
+
+	.entry-meta {
+		@include kind-subhead-text();
+		line-height: 1.4;
+		text-transform: none;
+		color: $color-text-light;
+		
+		a[href *= "tel"] {
+			color: $color-text;
+			cursor: default;
+			&:hover {  color: $color-text; }
+		}
+	}
+
+	.entry-data {
+		padding: $gut/2;
+	}
+
+	.people-cards-shortcode &:hover {
+		background: $color-page-bg;	
+	}
+
+	.people-cards-shortcode & .entry-preview:after {
+		display:none;
+	}
+
+	.people-cards-shortcode & .entry-data {
+		padding-bottom: 0;
+	}
+}
+
+/** Partners **/
+.tpl-org {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 40%;
+	margin-bottom: $gut;
+	text-align: center;
+	
+	@include for(small-screens) {
+		padding-bottom: 60%;
+	}
+
+	.logo-link {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		span {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+			line-height: 130px;
+		}
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		vertical-aling: middle;
+		width: auto;
+		height: auto;
+	}
+}
+
+
+/* Search card */
+.tpl-search {
+	margin-bottom: $gut;
+
+	a {
+		color: $color-text;
+	}
+
+	.entry-link {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.entry-title {
+		@include kind-body-title-text();
+		padding-top: 0px;
+		hyphens: auto;
+		color: $color-text;
+		margin-bottom: 0;
+	}
+
+	.entry-meta {
+		font-size: .85em;
+		margin-top: 2px;
+		margin-bottom: 1em;
+		opacity: .9;
+	}
+	
+	.entry-summary {
+		@include kind-body-text();
+		color: $color-text;
+	}
+}
+
+
+/*  Archive layouts */
+.archive-post-list {
+	padding-bottom: 70px;
+
+	&.cards-holder {
+		padding-top: 10px;
+
+		&.next-page {
+			padding-top: $gut;
+		}
+	}
+
+	.kind-post-item:not(.has-post-thumbnail) {
+		.kind-post-item__inner {
+			padding: 10px 25px 25px 25px;
+			background-color: var(--kind-color-light-grey);
+			border-radius: var(--kind-image-border-radius);
+		}
+	}
+}
+
+.listing-bg {
+	background: var(--kind-color-light-grey);
+}
+
+.featured-post {
+	margin-top: 70px;
+	margin-bottom: -70px;
+	.cards-loop {
+		transform: translateY(-70px);
+	}
+}
+
+// paging 
+.paging {
+	@include kind-link-paging-text();
+	padding: $base/2 0 $base/2;
+	text-align: center;
+	
+	.page-numbers {
+		display: inline-block;
+		color: $color-text;
+		padding: 0px 10px;
+		transition: color 0.3s, background 0.3s;
+
+		&:hover, &:focus, &:active {
+			color: $color-page-bg;
+			background: $color-main;
+		}
+		&.current {
+			color: $color-page-bg;
+			background: $color-main;
+		}
+	}
+	
+	&:empty {
+		display: none;
+	}
+}

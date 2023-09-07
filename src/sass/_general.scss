@@ -1,0 +1,94 @@
+/** == General (_general.scss) == */
+// Frontend styles that don't belong other places
+
+body {
+	background: var(--kind-page-bg-color);
+	color: var(--kind-color-base,#000000);
+	text-rendering: optimizeLegibility;
+	@include kind-body-text();
+
+	& > svg { display: none; }
+}
+
+
+.svg-icon, .svg-pic {
+	display: inline-block;
+}
+
+
+//global page elements
+.main-content {
+	min-height: 40vh;
+
+	&:not(.kind-overflow-visible) {
+		overflow:hidden;
+	}
+
+	&.archive-post-list {
+		margin-top: 70px;
+
+		> .container:first-child {
+			margin-top: -70px;
+		}
+
+		.kind-pagination {
+			margin-bottom: 0;
+		}
+
+		.projects-completed-container {
+			margin-top: 30px;
+
+			.section-title {
+				font-size: 26px;
+				font-family: var(--kind-font-family-headings);
+				color: var(--kind-color-headings);
+				margin-top: 0;
+				margin-bottom: 30px;
+				padding: 0;
+			}
+		}
+
+		.kind-pagination + .projects-completed-container {
+			margin-top: 70px;
+		}
+
+		.kind-project-completed {
+			opacity: var(--kind-completed-project-opacity);
+
+			.thumbnail-link,
+			.entry-title {
+				color: var(--kind-completed-project-color);
+			}
+		}
+	}
+
+	&.search-loop {
+		min-height: initial;
+		padding-bottom: 70px;
+		padding-top: 5px;
+
+		.kind-pagination {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.heading {
+	h1 {
+		padding: $gut / 1.2 0px $gut / 1.7 0px;
+	}
+}
+
+.section-title {
+	@include kind-head-exlarge-single-text();
+	color: var(--kind-color-headings);
+}
+
+.kind-main {
+	overflow: hidden;
+	padding-top: $logo_small_h + $height_gap + 1px;
+
+	@include for(medium-screens) {
+		padding-top: $logo_full_h + $height_gap + 1px;
+	}
+}

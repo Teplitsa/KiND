@@ -1,0 +1,54 @@
+/**
+ * Related
+ */
+
+.related-card-holder {
+	margin-top: $gut;
+	
+	.related-title {
+		@include kind-head-section-text();
+		color: var(--kind-color-headings);
+	}
+	
+	a {
+		@include kind-link-related-text();
+		color: var(--kind-color-main);
+		margin-bottom: 16px;
+
+		&:hover {
+			color: var(--kind-color-main-active);
+		}
+	}
+}
+
+.related-cards-loop {
+	margin-top: $gut / 2;
+	a {
+		display:block;
+	}
+}
+
+.tpl-related-post {
+	@extend .tpl-post;
+
+	.entry-data {
+		padding-top: 20px;
+		position: relative;
+	}
+
+	.entry-meta {
+		background:none;
+		bottom: 13px;
+		left: 26px;
+		z-index: 100;
+	}
+
+	.entry-title {
+		margin-top: 0;
+
+		@media (min-width: 1199px) {
+			font-size: 1.3rem;
+		}
+	}
+
+}

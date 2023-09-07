@@ -1,0 +1,73 @@
+/**
+ * Carousel
+ */
+
+.kind-block-carousel {
+
+	.flickity {
+		&-button {
+			background: #fff;
+
+			&-icon {
+				fill: var(--kind-color-main);
+			}
+		}
+
+		&-button:hover {  
+			background: #E6E6E6;
+		}
+
+		&-prev-next-button {
+			width: 42px;
+			height: 42px;
+			border: 2px solid #E6E6E6;
+
+			@media (min-width: 1250px) {
+				&.previous {
+					left: -30px;
+				}
+
+				&.next {
+					right: -30px;
+				}
+			}
+		}
+
+		&-slider {
+			display: flex;
+
+			.wp-block-kind-partners & {
+				align-items: center;
+
+				.kind-block-item {
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+			}
+		}
+
+	}
+
+	&.flickity-buttons-top {
+		.flickity-prev-next-button {
+			&.previous {
+				left: auto;
+				right: 75px;
+				top: -40px;
+			}
+
+			&.next {
+				right: 20px;
+				top: -40px;
+			}
+
+		}
+
+	}
+}
+
+.flickity-button {
+	&-hidden {
+		display: none;
+	}
+}

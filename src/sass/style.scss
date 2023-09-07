@@ -1,0 +1,51 @@
+// Styles frontend
+
+//dependencies
+@import 'bourbon';
+@import 'modularscale';
+
+//settings and functions
+@import 'file-header';
+@import 'variables';
+@import 'mixins';
+@import 'mixins-typography';
+
+//global utilities
+@import 'utility/fonts';
+@import 'utility/reset';
+@import 'utility/text';
+@import 'utility/grid';
+//@import 'utility/forms';
+
+//common styles
+@import 'general';
+
+//blocks
+@import 'blocks/header';
+@import 'blocks/footer';
+@import 'blocks/social';
+
+//elements
+@import 'elements/breadcrumbs';
+@import 'elements/pagination';
+@import 'elements/totop';
+
+@import 'kind-blocks/buttons';
+
+//content types
+@import 'types/posts';
+@import 'types/single';
+@import 'types/pages';
+@import 'types/archive';
+@import 'types/donations';
+
+//entry
+@import 'entry/entry';
+@import 'entry/comments';
+
+//widgets
+@import 'widgets/builtin';
+@import 'widgets/custom';
+
+//events
+@import 'events/events';

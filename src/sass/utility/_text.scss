@@ -1,0 +1,361 @@
+/* Screen-reader only text */
+.screen-reader-text {
+	@include screen-reader();
+}
+
+/* text alignment */
+.text-left   {
+	text-align: left; 
+}
+
+.text-right  {
+	text-align: right; 
+}
+
+.text-center {
+	text-align: center; 
+}
+
+body:not(#tinymce) ::-webkit-selection {
+	opacity: 1;
+	background : $color-main-dark;
+	color : var(--kind-color-white);
+	text-shadow : none; 
+}
+
+body:not(#tinymce) ::-moz-selection {
+	opacity: 1;
+	background : $color-main-dark;
+	color : var(--kind-color-white);
+	text-shadow : none; 
+}
+
+body:not(#tinymce) ::selection {
+	opacity: 1;
+	background : $color-main-dark;
+	color : var(--kind-color-white);
+	text-shadow : none; 
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--kind-font-family-headings);
+	font-weight: var(--kind-font-weight-headings);
+	font-style: var(--kind-font-style-headings);
+	line-height: 1.2;
+	color: var(--kind-color-headings);
+}
+
+h1 {
+	font-size: 44px;
+}
+h2 {
+	font-size: 37px;
+}
+h3 {
+	font-size: 31px;
+}
+h4 {
+	font-size: 26px;
+}
+h5 {
+	font-size: 22px;
+}
+h6 {
+	font-size: 18px;
+}
+
+.the-content {
+	color: var(--kind-color-base);
+	font-size: var(--kind-font-size-base);
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--kind-color-headings);
+	}
+
+	h1 {
+		font-size: clamp(30px, calc(1.875rem + (44 - 30) * ((100vw - 768px) / (1300 - 768))), 44px);
+	}
+	h2 {
+		font-size: clamp(26px, calc(1.625rem + (37 - 26) * ((100vw - 768px) / (1100 - 768))), 37px);
+	}
+	h3 {
+		font-size: clamp(22px, calc(1.375rem + ((1vw - 7.68px) * 2.0833)), 31px);
+	}
+	h4 {
+		font-size: clamp(20px, calc(1.25rem + ((1vw - 7.68px) * 1.3889)), 26px);
+	}
+	h5 {
+		font-size: clamp(18px, calc(1.125rem + ((1vw - 7.68px) * 0.9259)), 22px);
+	}
+	h6 {
+		font-size: clamp(16px, calc(1rem + ((1vw - 7.68px) * 0.463)), 18px);
+	}
+}
+
+/** Post content elements  **/
+
+// We wrap them into mixin to apply easily to the_content-like blocks
+// but isolate front other general text styles
+// we don't want them affect the elements outsite the_content-like blocks
+
+@mixin the-content {
+
+	a:not(.wp-block-button__link):not(.kind-button) { @include link-in-content(); }
+
+	//headings
+	h2, h3, h4, h5, h6 {
+		margin-top: 32px;
+		margin-bottom: 26px;
+
+		>&:first-child { margin-top: 0; }
+		>&:last-child { margin-bottom: 0; }
+
+		strong, b { font-weight: normal; }
+	}
+
+	em {
+		font-style: italic;
+		line-height: 1.5;
+	}
+
+	ins {
+		text-decoration: none;
+		display: inline-block;
+		background: #E7F3FF;
+		padding: 0 8px;
+	}
+
+	h2 + h3, h2 + h4, h2 + h5, h2 + h6,
+	h3 + h4, h3 + h5, h3 + h6,
+	h4 + h5, h4 + h6,
+	h5 + h6 {
+		margin-top: $inpage-margin-base / 2;
+	}
+
+	//texts
+	p, iframe, blockquote {
+		margin-bottom: $inpage-margin-base;
+		&:last-child { margin-bottom: 0; }
+	}
+
+	figure {
+		margin: $inpage-margin-base 0;
+		&:last-child { margin-bottom: 0; }
+		&:first-child { margin-top: 0; }
+	}
+
+	@include list();
+
+	blockquote {
+		font-style: italic;
+		position: relative;
+		padding-left: 34px;
+		margin-top: $inpage-margin-base*2;
+
+		&:before {
+			content: '“';
+			display: inline-block;
+			font-size: 70px;
+			line-height: 1;
+			position: absolute;
+			left: -12px;
+			top: -12px;
+			color: $color-main;
+		}
+
+		&:first-child { margin-top: 0; }
+		&:last-child { margin-bottom: 0; }
+	}
+
+	pre {
+		margin-bottom: $inpage-margin-base;
+		&:last-child { margin-bottom: 0; }
+		font-family: $mono;
+		font-size: 0.8em;
+		line-height: 1.75;
+	}
+
+	//image caption
+	.wp-caption {
+		max-width: 100%;
+		margin-bottom: $inpage-margin-base;
+
+		&.aligncenter {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 100%;
+		}
+
+		@include for(small-screens) {
+			&.alignleft {
+				float: left;
+				margin: 0 $gut 10px 0;
+				max-width: 50%;
+			}
+
+			&.alignright {
+				float: right;
+				margin: 0 0 10px $gut;
+				max-width: 50%;
+			}
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	.video-caption {
+		@include caption-text();
+		margin-top: -8px;
+		margin-bottom: $inpage-margin-base;
+	}
+
+	.wp-caption-text {
+		@include caption-text();
+		margin-top: 0.5em;
+	}
+
+	p+video-caption {
+		margin-top: 0;
+	}
+
+	//image in text
+	a[href].alignleft {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: left;
+			margin: 0 $gut 10px 0;
+			max-width: 50%;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	a[href].alignright {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: right;
+			margin: 0 0 10px $gut;
+			max-width: 50%;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	img.alignleft,
+	img[align ="left"] {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: left;
+			margin: 0 $gut 10px 0;
+			max-width: 50%;
+			height: auto;
+		}
+	}
+
+	
+	img.alignright,
+	img[align ="right"] {
+		display: block;
+		margin-bottom: $inpage-margin-base;
+
+		@include for(small-screens) {
+			float: right;
+			margin: 0 0 10px $gut;
+			max-width: 50%;
+			height: auto;
+		}
+	}
+
+	//pre
+	pre, code {
+		@include kind-body-text();
+	}
+}
+
+.the-content  {
+	@include the-content();
+}
+
+
+/* Default WP Galleries */
+.the-content .gallery,
+.gallery {
+	margin-top: $inpage-margin-base;
+	margin-bottom: $inpage-margin-base;
+	margin-right: -6px;
+	margin-left: -6px; 
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	.gallery-item {
+		padding: 6px;
+		margin: 0;
+		flex: 1 1 auto;
+
+		.wp-caption-text {
+			text-align: center;
+			margin-top: 0.5em;
+			font-size: 16px;
+		}
+
+		a {
+			display: block;
+			border: none;
+			text-decoration: none;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.widget-full.widget_media_gallery {
+	padding-left: 6px;
+	padding-right: 6px;
+}
+.widget-full.widget_media_gallery > .gallery {
+	max-width: 1104px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+}
+.widget-full.widget_media_gallery .widget-full-title {
+    max-width: 1088px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@for $i from 1 through 9 {
+  .gallery-columns-#{$i} .gallery-item { width: 100% / $i; }
+}
