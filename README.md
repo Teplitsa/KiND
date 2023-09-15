@@ -8,3 +8,5 @@ Flexibility and Customizability - With KiND, you have the freedom to implement a
 Low Code / No Code - You can build your website with ease, as no knowledge of programming is necessary.
 
 https://wordpress.org/themes/kind/
+
+For support and feedback: help@te-st.org
