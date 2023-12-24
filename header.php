@@ -1,6 +1,8 @@
 <?php
 /**
  * The header.
+ *
+ * @package KiND
  */
 
 ?><!doctype html>

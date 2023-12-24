@@ -1,7 +1,7 @@
 === KiND ===
 Contributors: burdianov
 Requires at least: 6.0
-Tested up to: 6.2
+Tested up to: 6.4
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -19,6 +19,9 @@ Join a community-driven development approach and unlock the potential of your me
 or non-profit with KiND —a flexible solution for your online presence.
 
 == Changelog ==
+
+= 1.0.6 =
+* Released: December 24, 2023
 
 = 1.0.0 (Released: June 01, 2023) =
 * Initial Release

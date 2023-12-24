@@ -5,9 +5,9 @@ Author: Teplitsa. Technologies for Social Good
 Author URI: https://te-st.org
 Description: The KiND theme is a user-friendly tool that allows NGOs and media organizations to create professional websites without the need for coding skills or prior experience. Open Source - Enjoy the benefits of modifiability, freedom, and community support without any payment required. Flexibility and Customizability - With KiND, you have the freedom to implement any feature or design element you desire. Low Code / No Code - You can build your website with ease, as no knowledge of programming is necessary.
 Requires at least: 6.0
-Tested up to: 6.2
+Tested up to: 6.4
 Requires PHP: 7.4
-Version: 1.0.5
+Version: 1.0.6
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: kind
@@ -1634,7 +1634,8 @@ body > svg {
 	background: transparent;
 }
 
-.trigger-button.menu #trigger_menu .svg-icon {
+.trigger-button.menu #trigger_menu .svg-icon,
+.trigger-button.menu #trigger_menu svg {
 	width: 32px;
 	height: 22px;
 }
@@ -1646,7 +1647,8 @@ body > svg {
 	pointer-events: none;
 }
 
-.trigger-button.menu:hover .svg-icon {
+.trigger-button.menu:hover .svg-icon,
+.trigger-button.menu:hover svg {
 	fill: var(--kind-color-main-active);
 }
 
@@ -1745,7 +1747,8 @@ body > svg {
 	padding: 20px;
 }
 
-.site-nav .kind-social-links .svg-icon {
+.site-nav .kind-social-links .svg-icon,
+.site-nav .kind-social-links svg {
 	fill: var(--kind-color-base);
 }
 
@@ -1763,6 +1766,7 @@ body > svg {
 	height: 100%;
 	max-width: 205px;
 	padding-left: 20px;
+	text-decoration: none;
 }
 
 .site-nav-title .logo-name {
@@ -1803,7 +1807,8 @@ body > svg {
 	padding: 29px;
 }
 
-.site-nav-title .close .svg-icon {
+.site-nav-title .close .svg-icon,
+.site-nav-title .close svg {
 	width: 18px;
 	height: 18px;
 	fill: var(--kind-color-white);
@@ -1826,6 +1831,7 @@ body > svg {
 	display: block;
 	padding: 19px 20px;
 	transition: color 0.3s, background 0.3s, border 0.3s, opacity 0.3s;
+	text-decoration: none;
 	font-size: 12px;
 	font-weight: 400;
 	line-height: 1.5;
@@ -1861,38 +1867,48 @@ body > svg {
 	position: relative;
 }
 
-.main-menu .menu-item-has-children > a {
-	margin-right: 59px;
+.main-menu .menu-item-has-children {
+	position: relative;
 }
 
-.main-menu .menu-item-has-children .submenu-trigger {
-	display: block;
+.main-menu .menu-item-has-children > a {
+	padding-right: 60px;
+}
+
+.main-menu .menu-item-has-children .kind-mobile-submenu-toggle {
+	border: none;
+	background-color: inherit;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 0;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-ms-flex-align: center;
+	align-items: center;
 	position: absolute;
 	top: 0;
-	left: 100%;
-	z-index: 100;
-	cursor: pointer;
-	text-align: center;
-	width: 59px;
-	height: 59px;
-	padding: 22.5px;
+	right: 0;
+	height: 58px;
+	width: 58px;
 }
 
-.main-menu .menu-item-has-children .submenu-trigger .svg-icon {
-	display: block;
-	width: 14px;
-	height: 14px;
-	fill: var(--kind-color-base);
-	vertical-align: middle;
+.main-menu .menu-item-has-children .kind-mobile-submenu-toggle:hover {
+	background-color: var(--kind-color-main);
+	color: #fff;
 }
 
-.main-menu .menu-item-has-children .submenu-trigger:hover .svg-icon {
-	fill: var(--kind-color-white);
+.main-menu .menu-item-has-children .kind-mobile-submenu-toggle > svg {
+	width: 16px;
+	height: 16px;
 }
 
-.main-menu > li > a > .submenu-trigger:hover {
-	background: var(--kind-color-main);
-	border-left-color: var(--kind-color-main);
+.main-menu .menu-item-has-children > a:hover + .kind-mobile-submenu-toggle {
+	color: #fff;
+}
+
+.main-menu .menu-item-has-children.open > .kind-mobile-submenu-toggle svg {
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
 }
 
 .main-menu > .menu-item-has-children > a:after {
@@ -1918,6 +1934,10 @@ body > svg {
 	padding-left: 65px;
 }
 
+.main-menu > .menu-item-has-children > .sub-menu .kind-mobile-submenu-toggle {
+	color: #fff;
+}
+
 .main-menu ul.sub-menu {
 	display: none;
 	visibility: hidden;
@@ -1928,16 +1948,6 @@ body > svg {
 .main-menu ul.sub-menu li {
 	border: none;
 	position: relative;
-}
-
-.main-menu ul.sub-menu .submenu-trigger {
-	border-left: 0;
-}
-
-.main-menu ul.sub-menu .submenu-trigger .svg-icon {
-	width: 10px;
-	height: 10px;
-	fill: #fff;
 }
 
 .main-menu ul.sub-menu a {
@@ -1969,19 +1979,8 @@ body > svg {
 	right: -59px;
 }
 
-.main-menu li.open > a > .submenu-trigger .svg-icon {
-	-ms-transform: rotate(180deg);
-	transform: rotate(180deg);
-	fill: var(--kind-color-white);
-}
-
 .main-menu li.open > ul.sub-menu {
 	visibility: visible;
-}
-
-.main-menu > li.open > a > .submenu-trigger {
-	background: var(--kind-color-main);
-	border-left-color: var(--kind-color-main);
 }
 
 /** New Header Version */
@@ -2025,6 +2024,7 @@ body > svg {
 	letter-spacing: .03em;
 	-ms-flex-align: center;
 	align-items: center;
+	text-decoration: none;
 }
 
 .kind-header-mobile-logo img {
@@ -2252,22 +2252,6 @@ body > svg {
 	margin-right: 20px;
 }
 
-.kind-header-nav > .menu > li.menu-item-has-children > a > .dropdown-nav-toggle {
-	padding-left: 0.15em;
-	padding-right: 0.15em;
-	margin-left: 0.15em;
-	margin-bottom: -0.2em;
-}
-
-.kind-header-nav > .menu > li.menu-item-has-children > a > .dropdown-nav-toggle:focus {
-	outline: 2px solid var(--kind-color-main) !important;
-}
-
-.kind-header-nav > .menu > li.menu-item-has-children > a svg {
-	display: block;
-	width: 0.5em;
-}
-
 .kind-header-nav > .menu > li.menu-item-has-children > .sub-menu {
 	top: 100%;
 	left: -10px;
@@ -2326,12 +2310,36 @@ body > svg {
 	box-shadow: 0px 3px 7px rgba(95, 93, 93, 0.25);
 }
 
-.kind-header-nav .sub-menu li.menu-item-has-children > a svg {
+.kind-header-nav .sub-menu li.menu-item-has-children {
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.kind-header-nav .sub-menu li.menu-item-has-children > a {
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+}
+
+.kind-header-nav .sub-menu li.menu-item-has-children > .kind-submenu-toggle {
 	display: block;
-	width: 0.5em;
-	margin-left: 0.3em;
+	margin-left: 3px;
+	margin-right: 3px;
 	-ms-transform: rotate(-90deg);
 	transform: rotate(-90deg);
+}
+
+.kind-header-nav .kind-submenu-toggle {
+	-ms-flex-item-align: center;
+	align-self: center;
+	background-color: inherit;
+	border: none;
+	color: currentColor;
+	display: inline-block;
+	font-size: inherit;
+	height: 14px;
+	width: 14px;
+	line-height: 0;
+	padding: 0;
 }
 
 .kind-header-nav > .menu li.menu-item-has-children:hover > .sub-menu,
@@ -2563,7 +2571,8 @@ body:not(.dom-loaded) .kind-header-nav .sub-menu {
 	background-color: var(--kind-color-main);
 }
 
-.kind-header__inner .kind-social-links li a .svg-icon {
+.kind-header__inner .kind-social-links li a .svg-icon,
+.kind-header__inner .kind-social-links li a svg {
 	width: 14px;
 	height: 14px;
 	fill: var(--kind-color-main);
@@ -2613,7 +2622,8 @@ body:not(.dom-loaded) .kind-header-nav .sub-menu {
 	background-color: var(--kind-footersocial-color-hover, #000);
 }
 
-.bottom-bar .kind-social-links li a .svg-icon {
+.bottom-bar .kind-social-links li a .svg-icon,
+.bottom-bar .kind-social-links li a svg {
 	fill: currentColor;
 }
 
@@ -2967,7 +2977,8 @@ body:not(.dom-loaded) .kind-header-nav .sub-menu {
 	display: none;
 }
 
-.kind-social-links li .svg-icon {
+.kind-social-links li .svg-icon,
+.kind-social-links li svg {
 	display: block;
 	vertical-align: middle;
 	width: 20px;
@@ -3052,7 +3063,8 @@ body:not(.dom-loaded) .kind-header-nav .sub-menu {
 	background-color: #e6e6e6;
 }
 
-.social-likes__widget a .svg-icon {
+.social-likes__widget a .svg-icon,
+.social-likes__widget a svg {
 	fill: #4d606a;
 	width: 20px;
 	height: 20px;
@@ -3066,7 +3078,8 @@ body:not(.dom-loaded) .kind-header-nav .sub-menu {
 	display: none;
 }
 
-.social-likes__widget .svg-icon {
+.social-likes__widget .svg-icon,
+.social-likes__widget svg {
 	display: block;
 	vertical-align: moddle;
 	fill: #ffffff;
@@ -3227,7 +3240,7 @@ body:not(.dom-loaded) .kind-header-nav .sub-menu {
 	opacity: 0.7;
 }
 
-.kind-to-top .svg-icon {
+.kind-to-top svg {
 	display: block;
 	fill: #4d606a;
 	width: 12px;
@@ -6469,7 +6482,8 @@ div[id*="leyka-pf-"] .inpage-card__thumb {
 	background-color: #e6e6e6;
 }
 
-.kind-entry-event__sharing .social-likes__widget a .svg-icon {
+.kind-entry-event__sharing .social-likes__widget a .svg-icon,
+.kind-entry-event__sharing .social-likes__widget a svg {
 	fill: #4d606a;
 	width: 18px;
 	height: 18px;

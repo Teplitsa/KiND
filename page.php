@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying all pages.
+ *
+ * @package KiND
  */
 
 get_header();

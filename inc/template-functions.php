@@ -7,12 +7,12 @@ if ( ! function_exists( 'kind_typography' ) ) {
 	/**
 	 * Output typography style.
 	 *
-	 * @param string $field   The field name of kirki.
-	 * @param string $type    The type of typography.
-	 * @param string $default The default value.
+	 * @param string $field         The field name of kirki.
+	 * @param string $type          The type of typography.
+	 * @param string $default_value The default value.
 	 */
-	function kind_typography( $field, $type, $default = '' ) {
-		$value       = $default;
+	function kind_typography( $field, $type, $default_value = '' ) {
+		$value       = $default_value;
 		$field_value = get_theme_mod( $field );
 		if ( is_array( $field_value ) && $field_value ) {
 			if ( isset( $field_value[ $type ] ) && $field_value[ $type ] ) {
@@ -217,7 +217,7 @@ function kind_detect_color_scheme( $color, $level = 190 ) {
 
 /** Colors managemnt for theme **/
 function kind_get_deault_main_color() {
-	return '#f43724'; // may depends on test content set somehow
+	return '#f43724'; // may depends on test content set somehow.
 }
 
 function kind_get_main_color() {
@@ -226,47 +226,48 @@ function kind_get_main_color() {
 
 function kind_get_theme_color( $color_name ) {
 	$main_color = get_theme_mod( $color_name );
-	
+
 	if ( empty( $main_color ) ) {
 		$main_color = kind_get_deault_main_color();
 	}
-	
+
 	return $main_color;
 }
 
 /**
  * Lightens/darkens a given colour (hex format), returning the altered colour in hex format.7
- * @param str $hex Colour as hexadecimal (with or without hash);
- * @percent float $percent Decimal ( 0.2 = lighten by 20%(), -0.4 = darken by 40%() )
- * @return str Lightened/Darkend colour as hexadecimal (with hash);
- * 
+ *
+ * @param str $hex Colour as hexadecimal (with or without hash).
+ * @percent float $percent Decimal ( 0.2 = lighten by 20%(), -0.4 = darken by 40%() ).
+ * @return str Lightened/Darkend colour as hexadecimal (with hash).
+ *
  * https://gist.github.com/stephenharris/5532899
  */
 function kind_color_luminance( $hex, $percent ) {
 
-	// validate hex string
-	$hex = preg_replace( '/[^0-9a-f]/i', '', $hex );
+	// Validate hex string.
+	$hex     = preg_replace( '/[^0-9a-f]/i', '', $hex );
 	$new_hex = '#';
-	
+
 	if ( strlen( $hex ) < 6 ) {
 		$hex = $hex[0] + $hex[0] + $hex[1] + $hex[1] + $hex[2] + $hex[2];
 	}
-	
+
 	if ( $percent > 0 ) {
 		for ( $i = 0; $i <= 5; $i++ ) {
-			if ( ! $hex[$i] ) {
-				$hex[$i] = 1;
+			if ( ! $hex[ $i ] ) {
+				$hex[ $i ] = 1;
 			}
 		}
 	}
 
-	// convert to decimal and change luminosity
+	// convert to decimal and change luminosity.
 	for ( $i = 0; $i < 3; $i++ ) {
-		$dec = hexdec( substr( $hex, $i * 2, 2 ) );
-		$dec = min( max( 0, $dec + $dec * $percent ), 255 );
+		$dec      = hexdec( substr( $hex, $i * 2, 2 ) );
+		$dec      = min( max( 0, $dec + $dec * $percent ), 255 );
 		$new_hex .= str_pad( dechex( $dec ), 2, 0, STR_PAD_LEFT );
 	}
-	
+
 	return $new_hex;
 }
 
@@ -322,8 +323,8 @@ function kind_get_post_by_title( $title = null, $post_type = 'page' ) {
 			'posts_per_page'         => 1,
 			'update_post_term_cache' => false,
 			'update_post_meta_cache' => false,
-			'ignore_sticky_posts' => true,
-			'post_status'         => 'inherit',
+			'ignore_sticky_posts'    => true,
+			'post_status'            => 'inherit',
 		)
 	);
 
@@ -336,7 +337,7 @@ function kind_get_post_by_title( $title = null, $post_type = 'page' ) {
 	return $post_by_title;
 }
 
-if ( ! function_exists('kind_social_links') ) {
+if ( ! function_exists( 'kind_social_links' ) ) {
 	/**
 	 * Socila links and sharing
 	 */
@@ -346,19 +347,21 @@ if ( ! function_exists('kind_social_links') ) {
 
 		$social_links = array();
 
-		foreach( kind_get_social_media_supported() as $id => $label ) {
+		foreach ( kind_get_social_media_supported() as $id => $label ) {
 
 			$link = esc_url( get_theme_mod( 'kind_social_' . $id ) );
-			if( $link ) {
-				$social_links[ $id ] = array( 'label' => $label, 'link' => $link );
+			if ( $link ) {
+				$social_links[ $id ] = array(
+					'label' => $label,
+					'link'  => $link,
+				);
 			}
-
 		}
 
 		$default_socials = array();
 
-		if( $social_links ) {
-			foreach( $social_links as $id => $data ) {
+		if ( $social_links ) {
+			foreach ( $social_links as $id => $data ) {
 				$default_socials[] = array(
 					'network' => $id,
 					'label'   => $data['label'],
@@ -375,45 +378,49 @@ if ( ! function_exists('kind_social_links') ) {
 			?>
 				<ul class="kind-social-links <?php echo esc_attr( $classes ); ?>">
 					<?php
-					foreach( $kind_social as $setting ) {
+					foreach ( $kind_social as $setting ) {
 
-						$icon = '<svg class="svg-icon">
-							<title>' . esc_html( $setting['label'] ) . '</title>
-							<use xlink:href="#icon-' . esc_attr( $setting['network'] ) . '" />
-						</svg>';
+						$social = $setting['network'];
+						if ( 'twitter' === $setting['network'] ) {
+							$social = 'x';
+						}
 
-						if ( ! $setting['network'] && $setting['image'] ) {
-							$icon = '<div class="image-icon-mask"><div class="image-icon" style="--hms-social-icon:url(' . wp_get_attachment_image_url( $setting['image'] ) . ')"></div></div>';
-						} else if ( ! $setting['network'] ) {
-							$icon = '';
+						$icon = block_core_social_link_get_icon( $social );
+
+						if ( 'tiktok' === $social ) {
+							$icon = str_replace( 'viewBox="0 0 32 32"', 'viewBox="-2 -2 36 36"', $icon );
+						}
+
+						if ( 'telegram' === $social ) {
+							$icon = str_replace( 'viewBox="0 0 128 128"', 'viewBox="24 24 80 80"', $icon );
 						}
 
 						if ( $icon ) {
-						?>
-						<li class="<?php echo esc_attr( $setting['network'] );?>">
-							<a href="<?php echo esc_url( $setting['url'] );?>" target="_blank" aria-label="<?php echo esc_attr( $setting['label'] );?>">
-								<?php echo $icon; ?>
+							?>
+						<li class="<?php echo esc_attr( $social ); ?>">
+							<a href="<?php echo esc_url( $setting['url'] ); ?>" target="_blank" aria-label="<?php echo esc_attr( $setting['label'] ); ?>">
+								<?php echo wp_kses( $icon, 'content' ); ?>
 								<span><?php echo esc_html( $setting['label'] ); ?></span>
 							</a>
 						</li>
-						<?php
+							<?php
 						}
 					}
 					?>
 				</ul>
 
-			<?php 
+			<?php
 		}
 
 		$out = ob_get_contents();
 		ob_end_clean();
 
-		if( $echo ) {
-			echo $out;
+		if ( $echo ) {
+			echo wp_kses( $out, 'content' );
+			//echo $out;
 		} else {
 			return $out;
 		}
-
 	}
 }
 
@@ -423,27 +430,27 @@ if ( ! function_exists('kind_social_links') ) {
 function kind_get_image_sizes( $size = '' ) {
 	$wp_additional_image_sizes = wp_get_additional_image_sizes();
 
-	$sizes = array();
+	$sizes                        = array();
 	$get_intermediate_image_sizes = get_intermediate_image_sizes();
 
 	// Create the full array with sizes and crop info
-	foreach( $get_intermediate_image_sizes as $_size ) {
+	foreach ( $get_intermediate_image_sizes as $_size ) {
 		if ( in_array( $_size, array( 'thumbnail', 'medium', 'large' ) ) ) {
-			$sizes[ $_size ]['width'] = get_option( $_size . '_size_w' );
+			$sizes[ $_size ]['width']  = get_option( $_size . '_size_w' );
 			$sizes[ $_size ]['height'] = get_option( $_size . '_size_h' );
-			$sizes[ $_size ]['crop'] = (bool) get_option( $_size . '_crop' );
+			$sizes[ $_size ]['crop']   = (bool) get_option( $_size . '_crop' );
 		} elseif ( isset( $wp_additional_image_sizes[ $_size ] ) ) {
-			$sizes[ $_size ] = array( 
-				'width' => $wp_additional_image_sizes[ $_size ]['width'],
+			$sizes[ $_size ] = array(
+				'width'  => $wp_additional_image_sizes[ $_size ]['width'],
 				'height' => $wp_additional_image_sizes[ $_size ]['height'],
-				'crop' =>  $wp_additional_image_sizes[ $_size ]['crop']
+				'crop'   => $wp_additional_image_sizes[ $_size ]['crop'],
 			);
 		}
 	}
 
 	// Get only 1 size if found
 	if ( $size ) {
-		if( isset( $sizes[ $size ] ) ) {
+		if ( isset( $sizes[ $size ] ) ) {
 			return $sizes[ $size ];
 		} else {
 			return false;
@@ -455,14 +462,14 @@ function kind_get_image_sizes( $size = '' ) {
 /**
  * Is active page title
  */
-function kind_is_page_title(){
+function kind_is_page_title() {
 	return apply_filters( 'kind_is_page_title', '__return_true' );
 }
 
 /**
  * Get social links
  */
-if ( ! function_exists( 'kind_get_social_media_supported') ) {
+if ( ! function_exists( 'kind_get_social_media_supported' ) ) {
 	function kind_get_social_media_supported() {
 		return array(
 			'facebook'  => esc_html__( 'Facebook', 'kind' ),
@@ -480,7 +487,7 @@ if ( ! function_exists( 'kind_get_social_media_supported') ) {
  */
 function kind_footer_copyright() {
 
-	$content = esc_html( sprintf( __( '© Copyright %s %s · All rights reserved.', 'kind' ), gmdate( 'Y' ), get_bloginfo( 'name' ),  ) );
+	$content = esc_html( sprintf( __( '© Copyright %1$s %2$s · All rights reserved.', 'kind' ), gmdate( 'Y' ), get_bloginfo( 'name' ), ) );
 
 	return $content;
 }
@@ -493,12 +500,68 @@ function kind_footer_poweredby() {
 	$content = '<a href="https://kndwp.org/" target="_blank">
 		<div class="support">' . esc_html__( 'Powered by KiND', 'kind' ) . '</div>
 		<div class="kind-banner">
-			<svg class="kind-icon pic-kind">
-				<title>' . esc_html__( 'KiND logo', 'kind' ) . '</title>
-				<use xlink:href="#pic-kind" />
-			</svg>
+			' . kind_icon( 'kind', false ) . '
 		</div>
 	</a>';
 
 	return $content;
+}
+
+if ( ! function_exists( 'kind_kses_allowed_html' ) ) {
+	/**
+	 * Filters the HTML that is allowed for a given context.
+	 *
+	 * @param array  $tags    Tags by.
+	 * @param string $context Context name.
+	 */
+	function kind_kses_allowed_html( $tags, $context ) {
+
+		if ( 'content' === $context ) {
+			$tags = array(
+				'svg'      => array(
+					'class'       => true,
+					'width'       => true,
+					'height'      => true,
+					'viewbox'     => true,
+					'xmlns'       => true,
+					'fill'        => true,
+					'aria-hidden' => true,
+					'focusable'   => true,
+					'version'     => true,
+				),
+				'path'      => array(
+					'd'         => true,
+					'fill-rule' => true,
+					'clip-rule' => true,
+					'stroke-width' => true,
+					'stroke-linecap' => true,
+					'stroke-linejoin' => true,
+					'stroke'      => true,
+				),
+				'span' => array(
+					'id'    => true,
+					'class' => true,
+					'style' => true,
+					'data-*' => true,
+				),
+				'a' => array(
+					'id'          => true,
+					'href'        => true,
+					'target'      => true,
+					'class'       => true,
+					'data-*'      => true,
+					'aria-label'  => true,
+				),
+				'ul' => array(
+					'class'       => true,
+				),
+				'li' => array(
+					'class'       => true,
+				),
+			);
+		}
+
+		return $tags;
+	}
+	add_filter( 'wp_kses_allowed_html', 'kind_kses_allowed_html', 10, 2 );
 }

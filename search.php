@@ -1,19 +1,21 @@
 <?php
 /**
  * Search tempalte
- **/
+ *
+ * @package KiND
+ */
 
 get_header();
 ?>
 <div class="page-header">
 	<div class="container">
 		<div class="text-column">
-			<h1 class="page-title"><?php esc_html_e( 'Search', 'kind' );?></h1>
+			<h1 class="page-title"><?php esc_html_e( 'Search', 'kind' ); ?></h1>
 		</div>
 	</div>
 	<div class="widget-full widget_search search-holder">
-		<?php get_search_form();?>
-		<div class="sr-num"><?php printf( _n( '%s result', '%s results', (int) $wp_query->found_posts, 'kind' ), (int) $wp_query->found_posts );?></div>
+		<?php get_search_form(); ?>
+		<div class="sr-num"><?php printf( _n( '%s result', '%s results', (int) $wp_query->found_posts, 'kind' ), (int) $wp_query->found_posts ); ?></div>
 	</div>
 </div>
 
@@ -27,23 +29,23 @@ get_header();
 		while ( have_posts() ) {
 			the_post();
 
-			$post_type_object = get_post_type_object(get_post_type());
-			$post_meta = $post_type_object->labels->singular_name;
-			$excerpt = apply_filters( 'kind_the_title', kind_get_post_excerpt( $post, 40, true ) );
+			$post_type_object = get_post_type_object( get_post_type() );
+			$post_meta        = $post_type_object->labels->singular_name;
+			$excerpt          = apply_filters( 'kind_the_title', kind_get_post_excerpt( $post, 40, true ) );
 			?>
 			<article class="tpl-search">
 				<h2 class="entry-title">
-					<a href="<?php the_permalink(); ?>" class="entry-link"><?php the_title();?></a>
+					<a href="<?php the_permalink(); ?>" class="entry-link"><?php the_title(); ?></a>
 				</h2>
 				<div class="entry-meta"><?php echo esc_html( $post_meta ); ?></div>
-				<div class="entry-summary"><?php echo esc_html( $excerpt );?></div>
+				<div class="entry-summary"><?php echo esc_html( $excerpt ); ?></div>
 			</article>
 			<?php
 		}
 		?>
 	</div>
 
-	<?php kind_posts_pagination(); ?>
+		<?php kind_posts_pagination(); ?>
 
 	<?php } else { ?>
 
@@ -61,4 +63,5 @@ get_header();
 
 </div>
 
-<?php get_footer();
+<?php
+get_footer();

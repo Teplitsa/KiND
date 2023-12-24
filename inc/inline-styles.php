@@ -24,7 +24,7 @@ function kind_inline_style() {
 		$kind_font_weight_base = kind_typography( 'font_base', 'variant', '500' );
 		$kind_font_size_base   = kind_typography( 'font_base', 'font-size', '18px' );
 	} else {
-		$kind_color_base = get_theme_mod( 'text_color', '#4d606a' );
+		$kind_color_base       = get_theme_mod( 'text_color', '#4d606a' );
 		$kind_font_weight_base = '500';
 		$kind_font_size_base   = '18px';
 	}
@@ -81,7 +81,7 @@ function kind_inline_style() {
 add_action( 'wp_enqueue_scripts', 'kind_inline_style', 40 );
 
 
-function kind_header_inline_style( $css ){
+function kind_header_inline_style( $css ) {
 
 	// Logo Typography.
 	$header_logo_font = '';
@@ -92,7 +92,7 @@ function kind_header_inline_style( $css ){
 			$kind_font_style_logo  = kind_typography( 'font_logo', 'font-style', 'normal' );
 			$kind_font_size_logo   = kind_typography( 'font_logo', 'font-size', '22px' );
 
-	$header_logo_font = '
+			$header_logo_font = '
 	--kind-font-family-logo: ' . $kind_font_family_logo . ';
 	--kind-font-weight-logo: ' . $kind_font_weight_logo . ';
 	--kind-font-style-logo:  ' . $kind_font_style_logo . ';
@@ -101,7 +101,7 @@ function kind_header_inline_style( $css ){
 		}
 	}
 
-$css .= '
+	$css .= '
 :root {
 	--kind-header-height: ' . get_theme_mod( 'header_height', '124px' ) . ';
 	--kind-header-background: ' . get_theme_mod( 'header_background', '#ffffff' ) . ';
@@ -122,7 +122,7 @@ $css .= '
 add_filter( 'kind_inline_style', 'kind_header_inline_style' );
 
 
-function kind_footer_inline_style( $css ){
+function kind_footer_inline_style( $css ) {
 
 	$footer_logo_font = '';
 	if ( get_theme_mod( 'font_footer_logo' ) && class_exists( 'Kirki' ) ) {
@@ -132,7 +132,7 @@ function kind_footer_inline_style( $css ){
 			$kind_font_style_logo  = kind_typography( 'font_footer_logo', 'font-style', 'normal' );
 			$kind_font_size_logo   = kind_typography( 'font_footer_logo', 'font-size', '22px' );
 
-	$footer_logo_font = '
+			$footer_logo_font = '
 	--kind-font-family-logo: ' . $kind_font_family_logo . ';
 	--kind-font-weight-logo: ' . $kind_font_weight_logo . ';
 	--kind-font-style-logo:  ' . $kind_font_style_logo . ';
@@ -141,7 +141,7 @@ function kind_footer_inline_style( $css ){
 		}
 	}
 
-$css .= '
+	$css .= '
 :root {
 	--kind-footer-background: ' . get_theme_mod( 'footer_background', '#f7f8f8' ) . ';
 	--kind-footer-heading-color: ' . get_theme_mod( 'footer_heading_color', '#183343' ) . ';

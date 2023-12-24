@@ -1,6 +1,8 @@
 <?php
 /**
  * The main template file.
+ *
+ * @package KiND
  */
 
 get_header(); ?>
@@ -15,10 +17,10 @@ get_header(); ?>
 		<div class="container">
 			<div class="flex-row start cards-loop">
 			<?php
-				while ( have_posts() ) {
-					the_post();
-					get_template_part( 'template-parts/content', 'archive' );
-				}
+			while ( have_posts() ) {
+				the_post();
+				get_template_part( 'template-parts/content', 'archive' );
+			}
 			?>
 			</div>
 		</div>
@@ -32,11 +34,12 @@ get_header(); ?>
 <?php } else { ?>
 	<div class="main-content listing-bg">
 		<div class="container">
-			<div class="empty-message"><?php esc_html_e( 'Unfortunately, nothing found', 'kind' );?></div>
+			<div class="empty-message"><?php esc_html_e( 'Unfortunately, nothing found', 'kind' ); ?></div>
 			<?php get_search_form(); ?>
 		</div>
 	</div>
-<?php }
+	<?php
+}
 
 kind_bottom_blocks();
 

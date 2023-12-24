@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying the footer.
+ *
+ * @package KiND
  */
 
 ?>
@@ -109,7 +111,7 @@
 					<div class="flex-cell flex-sm-4 flex-md-6">
 						<div class="kind-brand">
 							<?php
-								$content = str_replace( '{theme-credit}', kind_footer_poweredby(), get_theme_mod( 'footer_creator' ) );
+								$content = str_replace( '{theme-credit}', kind_footer_poweredby(), get_theme_mod( 'footer_creator', '{theme-credit}' ) );
 								echo do_shortcode( $content );
 							?>
 						</div>

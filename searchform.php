@@ -1,6 +1,8 @@
 <?php
 /**
- * The template for displaying search forms 
+ * The template for displaying search forms
+ *
+ * @package KiND
  */
 $kind_unique_id = wp_unique_id( 'search-form-' );
 

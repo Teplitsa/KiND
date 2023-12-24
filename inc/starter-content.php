@@ -8,7 +8,7 @@ function kind_get_starter_content() {
 	$starter_content = array(
 
 		// Specify the core-defined pages to create and add custom thumbnails to some of them.
-		'posts'     => array(
+		'posts'      => array(
 			'front' => array(
 				'post_type'    => 'page',
 				'post_title'   => esc_html_x( 'Create your website with blocks', 'Theme starter content', 'kind' ),
@@ -77,7 +77,7 @@ function kind_get_starter_content() {
 					<!-- wp:spacer -->
 					<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
 					<!-- /wp:spacer -->',
-				'template' => 'templates/template-noheader.php',
+				'template'     => 'templates/template-noheader.php',
 			),
 			'about',
 			'contact',
@@ -85,38 +85,38 @@ function kind_get_starter_content() {
 		),
 
 		// Default to a static front page and assign the front and posts pages.
-		'options'   => array(
-			'show_on_front'      => 'page',
-			'page_on_front'      => '{{front}}',
-			'page_for_posts'     => '{{blog}}',
-			'blogdescription'    => esc_html_x( 'Theme for Media and Non-Profits', 'Theme starter content', 'kind' ),
+		'options'    => array(
+			'show_on_front'   => 'page',
+			'page_on_front'   => '{{front}}',
+			'page_for_posts'  => '{{blog}}',
+			'blogdescription' => esc_html_x( 'Theme for Media and Non-Profits', 'Theme starter content', 'kind' ),
 		),
 
-		// Starter Theme Mods
+		// Starter Theme Mods.
 		'theme_mods' => array(
-			'header_logo_text'   => esc_html_x( 'Theme for Media and Non-Profits', 'Theme starter content', 'kind' ),
-			'header_button_text' => esc_html_x( 'Get Started', 'Theme starter content', 'kind' ),
+			'header_logo_text'      => esc_html_x( 'Theme for Media and Non-Profits', 'Theme starter content', 'kind' ),
+			'header_button_text'    => esc_html_x( 'Get Started', 'Theme starter content', 'kind' ),
 			'offcanvas_button_text' => esc_html_x( 'Get Started', 'Theme starter content', 'kind' ),
-			'footer_about_title' => esc_html_x( 'About Us', 'Theme starter content', 'kind' ),
-			'footer_about' => implode(
+			'footer_about_title'    => esc_html_x( 'About Us', 'Theme starter content', 'kind' ),
+			'footer_about'          => implode(
 				'',
 				array(
 					'<strong>' . esc_html_x( 'Address', 'Theme starter content', 'kind' ) . "</strong>\n",
-					esc_html_x( '123 Main Street', 'Theme starter content', 'kind'  ) . "\n",
+					esc_html_x( '123 Main Street', 'Theme starter content', 'kind' ) . "\n",
 					esc_html_x( 'New York, NY 10001', 'Theme starter content', 'kind' ) . "\n\n",
 					'<strong>' . esc_html_x( 'Hours', 'Theme starter content', 'kind' ) . "</strong>\n",
 					esc_html_x( 'Monday&ndash;Friday: 9:00AM&ndash;5:00PM', 'Theme starter content', 'kind' ) . "\n",
 					esc_html_x( 'Saturday &amp; Sunday: 11:00AM&ndash;3:00PM', 'Theme starter content', 'kind' ),
 				)
 			),
-			'footer_policy_title' => esc_html_x( 'About This Site', 'Theme starter content', 'kind' ),
-			'footer_policy' => esc_html_x( 'This may be a good place to introduce yourself and your site or include some credits.', 'Theme starter content', 'kind' ),
+			'footer_policy_title'   => esc_html_x( 'About This Site', 'Theme starter content', 'kind' ),
+			'footer_policy'         => esc_html_x( 'This may be a good place to introduce yourself and your site or include some credits.', 'Theme starter content', 'kind' ),
 		),
 
 		// Set up nav menus for each of the two areas registered in the theme.
-		'nav_menus' => array(
+		'nav_menus'  => array(
 			// Assign a menu to the "primary" location.
-			'primary' => array(
+			'primary'          => array(
 				'name'  => esc_html__( 'Primary menu', 'kind' ),
 				'items' => array(
 					'link_home',
@@ -127,7 +127,7 @@ function kind_get_starter_content() {
 			),
 
 			// Assign a menu to the "footer" location.
-			'footer'  => array(
+			'footer'           => array(
 				'name'  => esc_html__( 'Footer menu', 'kind' ),
 				'items' => array(
 					'link_home',

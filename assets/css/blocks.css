@@ -3873,7 +3873,8 @@ body:not(.logged-in):not(.block-editor-page) .kind-block-hint {
 	background-color: #e6e6e6;
 }
 
-.kind-entry-event__sharing .social-likes__widget a .svg-icon {
+.kind-entry-event__sharing .social-likes__widget a .svg-icon,
+.kind-entry-event__sharing .social-likes__widget a svg {
 	fill: #4d606a;
 	width: 18px;
 	height: 18px;

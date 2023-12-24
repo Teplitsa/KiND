@@ -1,6 +1,8 @@
 <?php
 /**
  * Block Patterns
+ *
+ * @package KiND
  */
 
 /**

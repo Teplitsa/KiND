@@ -16,14 +16,14 @@ if ( ! is_paged() && ( 0 === $post_index || 1 === $post_index ) ) {
 
 ?>
 
-<article <?php post_class( $post_class );?>>
+<article <?php post_class( $post_class ); ?>>
 	<div class="kind-post-item__inner">
 		<a href="<?php the_permalink(); ?>" class="thumbnail-link">
 			<?php if ( has_post_thumbnail() ) { ?>
-				<div class="entry-preview"><?php echo kind_post_thumbnail( get_the_ID(), 'post-thumbnail' );?></div>
+				<div class="entry-preview"><?php echo kind_post_thumbnail( get_the_ID(), 'post-thumbnail' ); ?></div>
 			<?php } ?>
 			<div class="entry-data">
-				<?php the_title('<h2 class="entry-title">','</h2>'); ?>
+				<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
 				<div class="entry-summary"><?php the_excerpt(); ?></div>
 			</div>
 		</a>

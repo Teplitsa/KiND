@@ -20,11 +20,11 @@
 		if ( has_nav_menu( 'primary' ) ) {
 			wp_nav_menu(
 				array(
-					'menu'                 => esc_html__('Main menu', 'kind'),
+					'menu'                 => esc_html__( 'Main menu', 'kind' ),
 					'theme_location'       => 'primary',
 					'container'            => 'nav',
 					'container_class'      => 'nav-main-menu',
-					'container_aria_label' => esc_attr__('Primary menu', 'kind'),
+					'container_aria_label' => esc_attr__( 'Primary menu', 'kind' ),
 					'menu_class'           => 'main-menu',
 				)
 			);

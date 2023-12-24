@@ -240,6 +240,11 @@ gulp.task('zip', function(){
 		'!CHANGELOG.md',
 		'!package.json',
 		'!package-lock.json',
+		'!composer.json',
+		'!phpcs.xml',
+		'!security.xml',
+		'!phpcs-result.txt',
+		'!phpcs-security-result.txt',
 		'!**.zip'
 	];
 

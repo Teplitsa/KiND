@@ -1,12 +1,14 @@
 <?php
 /**
  * Assets
+ *
+ * @package KiND
  */
 
 /**
  * Enqueue Style
  */
-function kind_enqueue_scripts(){
+function kind_enqueue_scripts() {
 	// Styles.
 	wp_enqueue_style(
 		'kind',
@@ -28,7 +30,7 @@ function kind_enqueue_scripts(){
 		'i18n' => array(
 			'a11y' => array(
 				'expand'            => esc_attr__( 'Expand child menu', 'kind' ),
-				'collapse'          => esc_attr__( 'Collapse child menu', 'kind'),
+				'collapse'          => esc_attr__( 'Collapse child menu', 'kind' ),
 				'offCanvasIsOpen'   => esc_attr__( 'Off-Canvas is open', 'kind' ),
 				'offCanvasIsClosed' => esc_attr__( 'Off-Canvas is closed', 'kind' ),
 			),
@@ -46,7 +48,6 @@ function kind_enqueue_scripts(){
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) && get_theme_mod( 'post_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
 }
 add_action( 'wp_enqueue_scripts', 'kind_enqueue_scripts' );
 
@@ -73,7 +74,6 @@ function kind_enqueue_block_assets() {
 	);
 
 	kind_inline_style();
-
 }
 add_action( 'enqueue_block_assets', 'kind_enqueue_block_assets' );
 
@@ -85,6 +85,5 @@ function kind_enqueue_block_editor_assets() {
 	wp_enqueue_style( 'kind-gutenberg', get_template_directory_uri() . '/assets/css/gutenberg.css', kind_get_theme_version() );
 
 	kind_inline_style();
-
 }
 add_action( 'enqueue_block_editor_assets', 'kind_enqueue_block_editor_assets' );

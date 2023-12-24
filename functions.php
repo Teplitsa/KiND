@@ -1,6 +1,8 @@
 <?php
 /**
  * Theme functions and definitions
+ *
+ * @package KiND
  */
 
 /**
@@ -69,7 +71,7 @@ function kind_setup() {
 
 	add_theme_support( 'wp-block-styles' );
 
-	// Editor Color Palette
+	// Editor Color Palette.
 	add_theme_support( 'editor-color-palette', kind_color_palette() );
 
 	/*
@@ -78,7 +80,7 @@ function kind_setup() {
 	* page load, as it is a one-off operation only needed once in the customizer.
 	*/
 	if ( is_customize_preview() ) {
-		require get_template_directory() . '/inc/starter-content.php';
+		require_once get_template_directory() . '/inc/starter-content.php';
 		add_theme_support( 'starter-content', kind_get_starter_content() );
 	}
 
@@ -96,8 +98,8 @@ add_action( 'after_setup_theme', 'kind_setup' );
 /**
  * Get Theme Version
  */
-function kind_theme_version(){
-	$theme = wp_get_theme();
+function kind_theme_version() {
+	$theme  = wp_get_theme();
 	$parent = $theme->parent();
 
 	if ( $parent ) {

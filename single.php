@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying all single posts.
+ *
+ * @package KiND
  */
 
 $cpost = get_queried_object();
@@ -42,13 +44,13 @@ get_header();
 					<?php if ( get_post_type() === 'project' ) { ?>
 						<?php if ( get_theme_mod( 'project_social_shares', true ) ) { ?>
 							<div id="kind_sharing" class="regular-sharing">
-								<?php echo kind_social_share_no_js();?>
+								<?php echo kind_social_share_no_js(); ?>
 							</div>
 						<?php } ?>
 					<?php } else { ?>
 						<?php if ( get_theme_mod( 'post_social_shares', true ) ) { ?>
 							<div id="kind_sharing" class="regular-sharing">
-								<?php echo kind_social_share_no_js();?>
+								<?php echo kind_social_share_no_js(); ?>
 							</div>
 						<?php } ?>
 					<?php } ?>

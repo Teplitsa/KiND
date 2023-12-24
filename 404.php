@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying the 404 template.
+ *
+ * @package KiND
  */
 
 get_header();

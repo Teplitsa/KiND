@@ -65,7 +65,8 @@ $social_color: (
 			span { display: none; }
 		}
 
-		.svg-icon {
+		.svg-icon,
+		svg {
 			display: block;
 			vertical-align: middle;
 			width: 20px;
@@ -131,7 +132,8 @@ $social_color: (
 			background-color: #e6e6e6;
 		}
 
-		.svg-icon {
+		.svg-icon,
+		svg {
 			fill: #4d606a;
 			width: 20px;
 			height: 20px;
@@ -141,10 +143,13 @@ $social_color: (
 	+ .social-likes__widget {
 		margin-top: 15px;
 	}
-	
-	.sh-text { display: none; }
-	
-	.svg-icon {
+
+	.sh-text {
+		display: none;
+	}
+
+	.svg-icon,
+	svg {
 		display: block;
 		vertical-align: moddle;
 		fill: #ffffff;
