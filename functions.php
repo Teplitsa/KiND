@@ -50,6 +50,14 @@ function kind_setup() {
 		)
 	);
 
+	// Supported Appearance Tools.
+	add_theme_support( 'custom-line-height' );
+	add_theme_support( 'custom-spacing' );
+	add_theme_support( 'custom-units' );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'border' );
+	add_theme_support( 'link-color' );
+
 	// Add support post thumbnails.
 	add_theme_support( 'post-thumbnails' );
 
@@ -62,13 +70,7 @@ function kind_setup() {
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
-	// Add support custom-spacing.
-	add_theme_support( 'custom-spacing' );
-
-	add_theme_support( 'experimental-link-color' );
-
-	add_theme_support( 'custom-line-height' );
-
+	// Add block styles.
 	add_theme_support( 'wp-block-styles' );
 
 	// Editor Color Palette.

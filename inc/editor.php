@@ -43,12 +43,15 @@ function kind_color_palette() {
 /**
  * Register block core/table underline style
  */
-if ( function_exists( 'register_block_style' ) ) {
-	register_block_style(
-		'core/table',
-		array(
-			'name'  => 'underline',
-			'label' => esc_html__( 'Underline', 'kind' ),
-		)
-	);
+function kind_register_block_style(){
+	if ( function_exists( 'register_block_style' ) ) {
+		register_block_style(
+			'core/table',
+			array(
+				'name'  => 'underline',
+				'label' => esc_html__( 'Underline', 'kind' ),
+			)
+		);
+	}
 }
+add_action( 'init', 'kind_register_block_style' );
