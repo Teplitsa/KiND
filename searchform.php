@@ -12,7 +12,7 @@ $kind_unique_id = wp_unique_id( 'search-form-' );
 
 	<label for="<?php echo esc_attr( $kind_unique_id ); ?>" class="screen-reader-text"><?php esc_html_e( 'Search', 'kind' ); ?></label>
 
-	<input type="search" class="kind-search__input" id="<?php echo esc_attr( $kind_unique_id ); ?>" value="<?php the_search_query(); ?>" name="s" placeholder="<?php esc_attr_e( 'Enter text to search ...', 'kind' ); ?>" aria-label="<?php esc_attr_e( 'Search', 'kind' ); ?>" autocomplete="off" >
+	<input type="search" class="kind-search__input" id="<?php echo esc_attr( $kind_unique_id ); ?>" value="<?php the_search_query(); ?>" name="s" placeholder="<?php esc_attr_e( 'Enter text to search ...', 'kind' ); ?>" aria-label="<?php esc_attr_e( 'Search', 'kind' ); ?>" autocomplete="off">
 
 	<button class="kind-search__submit" type="submit" aria-label="<?php esc_attr_e( 'Start search', 'kind' ); ?>">
 		<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">

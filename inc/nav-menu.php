@@ -14,7 +14,6 @@ function kind_primary_menu_item_args( $args, $item ) {
 
 	if ( 'primary' === $args->theme_location && 'main-menu' !== $args->menu_class ) {
 
-		//print_r($item->classes);
 		if ( in_array( 'menu-item-has-children', $item->classes ) ) {
 			$args->link_before = '<span>';
 			$args->link_after  = '</span>';
@@ -41,5 +40,3 @@ function kind_primary_menu_item_args( $args, $item ) {
 	return $args;
 }
 add_filter( 'nav_menu_item_args', 'kind_primary_menu_item_args', 10, 2 );
-
-

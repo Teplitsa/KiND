@@ -178,21 +178,19 @@ function kind_posts_pagination( $args = array() ) {
 function kind_more_section( $posts, $title = '', $type = 'news', $css = '' ) {
 	if ( empty( $posts ) ) {
 		return;
-    }
+	}
 
 	if ( $type == 'projects' ) {
-		$all_link = "<a href='" . home_url( 'activity' ) . "'>" . esc_html__( 'More projects', 'kind' ) . '&nbsp;&rarr;</a>';
-		$title    = ( empty( $title ) ) ? esc_html__( 'Our projects', 'kind' ) : $title;
+		$title = ( empty( $title ) ) ? esc_html__( 'Our projects', 'kind' ) : $title;
 	} else {
-		$all_link = "<a href='" . home_url( 'news' ) . "'>" . esc_html__( 'More news', 'kind' ) . '&nbsp;&rarr;</a>';
-		$title    = ( empty( $title ) ) ? esc_html__( 'Latest news', 'kind' ) : $title;
+		$title = ( empty( $title ) ) ? esc_html__( 'Latest news', 'kind' ) : $title;
 	}
 
 	$css .= ' related-card-holder';
 	?>
 <section class="<?php echo esc_attr( $css ); ?>">
 
-	<h3 class="related-title"><?php echo $title; ?></h3>
+	<h3 class="related-title"><?php echo esc_html( $title ); ?></h3>
 
 	<div class="related-cards-loop">
 	<?php
@@ -478,7 +476,6 @@ function kind_offcanvas_toggle( $is_active = true ) {
 	if ( ! $is_active ) {
 		return;
 	}
-
 	?>
 	<button class="kind-offcanvas-toggle" aria-label="<?php esc_attr_e( 'Open Off-Canvas', 'kind' ); ?>">
 		<span></span>

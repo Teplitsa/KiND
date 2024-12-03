@@ -13,9 +13,9 @@
 			<div class="kind-header__col kind-col-right">
 				<?php
 					kind_header_nav_menu();
-				if ( get_theme_mod( 'header_social' ) ) {
-					kind_social_links();
-				}
+					if ( get_theme_mod( 'header_social' ) ) {
+						kind_social_links();
+					}
 					kind_search_toggle();
 					kind_header_additional_button();
 					kind_header_button();
